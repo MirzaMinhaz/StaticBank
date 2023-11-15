@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DepositComponent } from './deposit.component';
+import { WithdrawComponent } from './withdraw.component';
 
-describe('DepositComponent', () => {
-  let component: DepositComponent;
-  let fixture: ComponentFixture<DepositComponent>;
+describe('WithdrawComponent', () => {
+  let component: WithdrawComponent;
+  let fixture: ComponentFixture<WithdrawComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DepositComponent]
+      declarations: [WithdrawComponent]
     });
-    fixture = TestBed.createComponent(DepositComponent);
+    fixture = TestBed.createComponent(WithdrawComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

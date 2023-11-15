@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { DepositComponent } from './components/deposit/deposit/deposit.component';
+import { WithdrawComponent } from './components/withdraw/withdraw.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserInfoComponent,
-    DepositComponent
+    DepositComponent,
+    WithdrawComponent
   ],
   imports: [
     BrowserModule,
