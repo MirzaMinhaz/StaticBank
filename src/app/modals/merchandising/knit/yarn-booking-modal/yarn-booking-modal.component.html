@@ -1,0 +1,52 @@
+<div class="card m-3">
+    <div class="card-body">
+        <section class="example-container mat-elevation-z8" tabindex="0">
+            <table mat-table [dataSource]="OrderQtyAndfabricationList">
+                <ng-container matColumnDef="colorName">
+                    <th class="border" mat-header-cell *matHeaderCellDef>Fabric Color</th>
+                    <td class="border" mat-cell *matCellDef="let item let rowIndex = index;"> 
+                        <select class="design" [(ngModel)]="item.colorName" #colorDropdown (ngModelChange)="onColorChange($event,rowIndex)" style="margin-bottom: .4rem;">
+                            <option value="">{{initialColor}}</option>
+                            <option *ngFor="let colorName of colorNameList" [ngValue]="colorName.colorName">
+                                {{ colorName.colorName }}
+                            </option>
+                        </select>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="orderQty">
+                    <th class="border" mat-header-cell *matHeaderCellDef>Color Qty</th>
+                    <td class="border" mat-cell *matCellDef="let item let rowIndex = index;">
+                        <input class="design" matInput [(ngModel)]="item.orderQty"
+                        (input)="onTextChange(item, 'Order Qty', $event,rowIndex)" (keypress)="onKeyPress($event)">
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="fabrication">
+                    <th class="border" mat-header-cell *matHeaderCellDef>Fabrication</th>
+                    <td class="border" mat-cell *matCellDef="let item let rowIndex = index;">
+                        <div class="checkvalue" *ngFor="let obj of item.fabrication"> 
+                            <mat-checkbox class="check" [(ngModel)]="obj.isChecked" color="primary"></mat-checkbox>{{obj.fabrication}}
+                        </div>              
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="add">
+                    <th class="border2" mat-header-cell *matHeaderCellDef>Add</th>
+                    <td class="border2" mat-cell *matCellDef="let item let rowIndex = index;">
+                        <button class="plus" (click)="OnClickAddNewRow(rowIndex + 1,item)"><i class="fa fa-plus"></i></button>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="remove">
+                    <th class="border2" mat-header-cell *matHeaderCellDef>Remove</th>
+                    <td class="border2" mat-cell *matCellDef="let item let row ">
+                        <button class="minus" (click)="OnClickRemoveNewRow(row)"><i class="fa fa-minus"></i></button>
+                    </td> 
+                </ng-container>
+                    <tr class="color" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns; " ></tr>
+            </table>
+        </section>
+        <div>
+            <button class="save" (click)="saveColorWiseQtyBreakdown()">Save</button>
+        </div>
+    </div>
+</div>
+

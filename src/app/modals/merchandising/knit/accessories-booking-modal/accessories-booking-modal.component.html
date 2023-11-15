@@ -1,0 +1,341 @@
+
+<div class="card m-3">
+    <h4 class="card-header">
+        <span class="title">{{ AccessoriesName }} Booking Details</span>
+        <button mat-icon-button mat-dialog-close class="close-button">
+            <mat-icon>close</mat-icon>
+        </button>
+    </h4>
+    <div class="card-body">
+        <div class="container">
+            <form [formGroup]="accessoriesBookingForm">
+
+                <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="accessoriesName">Accessories Name</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="accessoriesName">:</label>
+                        </div>
+                        <div class="col-20">
+                           {{ AccessoriesName }} 
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedTotalQty">Total Accessories Qty</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedTotalQty">:</label>
+                        </div>
+                        <div class="col-20">
+
+                            {{ TotalQty }} {{ ItemUnit }}
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedConsumptionPerDz">Consumption Per Dz Garment</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedTotalConsumption">:</label>
+                        </div>
+                        <div class="col-20">
+                            {{ ConsumptionPerDz }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedWastagePerDz">Wastage Per Dz Garment (%)</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedWastagePerDz">:</label>
+                        </div>
+                        <div class="col-20">
+
+                            {{ WastagePerDz }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedTotalConsumption">Total Consumption Per Dz Garment (With Wastage)</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedTotalConsumption">:</label>
+                        </div>
+                        <div class="col-20">
+                            {{ TotalConsumption }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="itemUnit">Item Unit</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="itemUnit">:</label>
+                        </div>
+                        <div class="col-20">
+
+                            {{ ItemUnit }}
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedRate">Accessories Cost Per Dz($) Garment </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedRate">:</label>
+                        </div>
+                        <div class="col-20">
+                            {{ PDFRate}}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="approvedTotalOrderValue">Total Accessories Cost ($)</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="approvedTotalOrderValue">:</label>
+                        </div>
+                        <div class="col-20">
+                            {{TotalOrderValue }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="convertedAccessoriesQty">Converted Accessories Qty</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="convertedAccessoriesQty">:</label>
+                        </div>
+                        <div class="col-20">
+                            {{ convertedQty }} {{ accessoriesBookingForm.get('unitType')?.value }}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="unitType">Unit Type</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="unitType">:</label>
+                        </div>
+                        <div class="col-20">
+                            <select (ngModelChange)="convertQuantity()" 
+                            style="padding: 3px 0;margin-top: .1px;" id="unitType" name="unitType" formControlName="unitType" class="form-control">
+                                <option value="">Select Unit</option>
+                                <option *ngFor="let Unit of dropdownList" [ngValue]="Unit" 
+                                [disabled]="Unit === selectedUnit">{{ Unit }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-28">
+                            <label for="remainingAccessoriesQty">Remaining Accessories Qty</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="remainingAccessoriesQty">:</label>
+                        </div>
+                        <div class="col-20">
+                            
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-28">
+                            <label for="remainingAccessoriesCost">Remaining Accessories Cost ($)</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="remainingAccessoriesCost">:</label>
+                        </div>
+                        <div class="col-20">
+                            
+                        </div>
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <label>
+        <input type="checkbox" id="chkOrderSensitive" [(ngModel)]="chkOrderSensitive"
+            (change)="onChkOrderSensitive()"> Order Sensitive
+    </label>
+    <label>
+        <input type="checkbox" id="chkColorSensitive" [(ngModel)]="chkColorSensitive"
+            (change)="onChkColorSensitive()"> Color Sensitive
+    </label>
+    <label>
+        <input type="checkbox" id="chkSizeSensitive" [(ngModel)]="chkSizeSensitive" (change)="onChkSizeSensitive()">
+        Size Sensitive
+    </label>
+    <label>
+        <input type="checkbox" id="chkColorWiseSizeSensitive" [(ngModel)]="chkColorWiseSizeSensitive"
+            (change)="onChkColorWiseSizeSensitive()"> Color Wise Size Sensitive
+    </label>
+</div>
+<br>
+
+<div *ngIf="chkOrderSensitive">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="orderSensivityList">
+
+            <ng-container matColumnDef="rate">
+                <th class="border" mat-header-cell *matHeaderCellDef>Supplier Rate($)</th>
+                <td class="border" mat-cell *matCellDef="let OrderSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="OrderSensitive.rate"
+                        (input)="calOrderSensitivTotalPrice(OrderSensitive,$event)">
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="accessoriersQty">
+                <th class="border" mat-header-cell *matHeaderCellDef>Accessoriers Qty</th>
+                <td class="border" mat-cell *matCellDef="let OrderSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="OrderSensitive.accessoriersQty"
+                        (input)="calOrderSensitivTotalPrice(OrderSensitive,$event)">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalPrice">
+                <th class="border" mat-header-cell *matHeaderCellDef>Total Price($)</th>
+                <td class="border" mat-cell *matCellDef="let OrderSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="OrderSensitive.totalPrice" readonly>
+                </td>
+            </ng-container>
+
+
+            <tr class="color" mat-header-row *matHeaderRowDef="displayedColumnsForOrderSensitive"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsForOrderSensitive; "></tr>
+        </table>
+    </section>
+    <br>
+    <button class="save" (click)="saveAccessoriesBooking()">Save</button>
+    <br>
+</div>
+
+<div *ngIf="chkColorSensitive">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="colorSensitiveList">
+            <ng-container matColumnDef="color">
+                <th class="border" mat-header-cell *matHeaderCellDef>Color Name</th>
+                <td class="border" mat-cell *matCellDef="let colorSensitive let rowIndex = index;">
+                    {{colorSensitive.color}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="rate">
+                <th class="border" mat-header-cell *matHeaderCellDef>Supplier Rate($)</th>
+                <td class="border" mat-cell *matCellDef="let colorSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="colorSensitive.rate"
+                        (input)="calColorSensitive(colorSensitive,$event)">
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="accessoriersQty">
+                <th class="border" mat-header-cell *matHeaderCellDef>Accessoriers Qty</th>
+                <td class="border" mat-cell *matCellDef="let colorSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="colorSensitive.accessoriersQty"
+                        (input)="calColorSensitive(colorSensitive,$event)">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalPrice">
+                <th class="border" mat-header-cell *matHeaderCellDef>Total Price($)</th>
+                <td class="border" mat-cell *matCellDef="let colorSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="colorSensitive.totalPrice" readonly>
+                </td>
+            </ng-container>
+
+
+            <tr class="color" mat-header-row *matHeaderRowDef="displayedColumnsForcolorSensitive"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsForcolorSensitive; "></tr>
+        </table>
+    </section>
+    <br>
+    <button class="save" (click)="saveAccessoriesBooking()">Save</button>
+    <br>
+</div>
+
+<div *ngIf="chkSizeSensitive">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="sizeSensitiveList">
+            <ng-container matColumnDef="size">
+                <th class="border" mat-header-cell *matHeaderCellDef>Size Name</th>
+                <td class="border" mat-cell *matCellDef="let sizeSensitive let rowIndex = index;">
+                    {{sizeSensitive.size}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="rate">
+                <th class="border" mat-header-cell *matHeaderCellDef>Supplier Rate($)</th>
+                <td class="border" mat-cell *matCellDef="let sizeSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="sizeSensitive.rate"
+                        (input)="calSizeSensitive(sizeSensitive,$event)">
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="accessoriersQty">
+                <th class="border" mat-header-cell *matHeaderCellDef>Accessoriers Qty</th>
+                <td class="border" mat-cell *matCellDef="let sizeSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="sizeSensitive.accessoriersQty"
+                        (input)="calSizeSensitive(sizeSensitive,$event)">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="totalPrice">
+                <th class="border" mat-header-cell *matHeaderCellDef>Total Price($)</th>
+                <td class="border" mat-cell *matCellDef="let sizeSensitive let rowIndex = index;">
+                    <input class="design" matInput [(ngModel)]="sizeSensitive.totalPrice" readonly>
+                </td>
+            </ng-container>
+
+
+            <tr class="color" mat-header-row *matHeaderRowDef="displayedColumnsForsizeSensitive"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsForsizeSensitive; "></tr>
+        </table>
+    </section>
+    <br>
+    <button class="save" (click)="saveAccessoriesBooking()">Save</button>
+    <br>
+</div>
+
+<div *ngIf="chkColorWiseSizeSensitive">
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="colorWiseBookingList">
+            <ng-container matColumnDef="color">
+                <th class="border" mat-header-cell *matHeaderCellDef>Color Name</th>
+                <td class="border" mat-cell *matCellDef="let item let rowIndex = index;">
+                    {{item.color}}
+                </td>
+            </ng-container>
+            <ng-container *ngFor="let column of displayedcreateTableColorWiseSizeSensitive.slice(1)"
+                matColumnDef="{{ column }}">
+                <th class="border2" mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                <td class="border2" mat-cell *matCellDef="let element let rowIndex = index ">
+                    <input class="design2" [(ngModel)]="element[column]" name="{{ column }}"
+                        (input)="calColorWiseSizeSensitive(element, column,$event)" placeholder="Rate" />
+                    <input class="design2" [(ngModel)]="element[column + 'accessoriersQty']"
+                        name="{{ column + 'accessoriersQty' }}"
+                        (input)="calColorWiseSizeSensitive(element, column,$event)"
+                        placeholder="A.Qty" />
+                    <input class="design2" [(ngModel)]="element[column + 'totalprice']"
+                        name="{{ column + 'totalprice' }}" placeholder="T.Price" readonly />
+                </td>
+            </ng-container>
+            <tr class="color" mat-header-row *matHeaderRowDef="displayedcreateTableColorWiseSizeSensitive"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedcreateTableColorWiseSizeSensitive; "></tr>
+        </table>
+    </section>
+    <br>
+    <button class="save" (click)="saveAccessoriesBooking()">Save</button>
+    <br>
+</div>
