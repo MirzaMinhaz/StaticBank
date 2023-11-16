@@ -26,6 +26,28 @@ export const navbarData: INavbarData[] = [
     },
     {
         routelink: 'CRM',
+        icon: 'fa-solid fa-building-columns',
+        label: 'Utilities',
+        items: [
+            {
+                routelink: 'Support',
+                icon: 'fal fa-check',
+                label: 'Support'
+            },
+            {
+                routelink: 'SupportList',
+                icon: 'fal fa-check',
+                label: 'Support List'
+            },
+            {
+                routelink: 'EmpInfo',
+                icon: 'fal fa-check',
+                label: 'Employee Info'
+            }
+        ]
+    },
+    {
+        routelink: 'CRM',
         icon: 'fas fa-file-alt',
         label: 'CRM Support',
         items: [
