@@ -25,24 +25,31 @@ export const navbarData: INavbarData[] = [
         ]
     },
     {
-        routelink: 'CRM',
-        icon: 'fa-solid fa-building-columns',
+        routelink: 'UserInformation',
+        icon: 'fas fa-user',
+        label: 'User Info',
+        items: [
+            {
+                routelink: 'userInfo',
+                icon: 'fal fa-check',
+                label: 'User Info'
+            }
+        ]
+    },
+    {
+        routelink: 'Utilities',
+        icon: 'fas fa-building-columns',
         label: 'Utilities',
         items: [
             {
-                routelink: 'Support',
+                routelink: 'Deposit',
                 icon: 'fal fa-check',
-                label: 'Support'
+                label: 'Deposit'
             },
             {
-                routelink: 'SupportList',
+                routelink: 'Withdraw',
                 icon: 'fal fa-check',
-                label: 'Support List'
-            },
-            {
-                routelink: 'EmpInfo',
-                icon: 'fal fa-check',
-                label: 'Employee Info'
+                label: 'Withdraw'
             }
         ]
     },
