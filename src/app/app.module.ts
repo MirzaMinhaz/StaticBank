@@ -21,23 +21,47 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 //import { RegisterComponent } from './components/register/register.component';
 import { ModalpopupComponent } from './modalpopup/modalpopup.component';
-import { InitialOrderModalComponent } from './modals/merchandising/knit/initial-order-modal/initial-order-modal.component';
+//import { InitialOrderModalComponent } from './modals/merchandising/knit/initial-order-modal/initial-order-modal.component';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserInfoComponent,
-    DepositComponent,
-    WithdrawComponent
+    BodyComponent,
+    SidenavComponent,
+    DashboardComponent,
+    SublevelMenuComponent,
+    HeaderComponent,
+    ModalpopupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatGridListModule,
+    MatListModule,
+    MatDialogModule,
+    DateInputsModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
