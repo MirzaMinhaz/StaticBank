@@ -27,18 +27,18 @@ export const navbarData: INavbarData[] = [
     {
         routelink: 'UserInformation',
         icon: 'fas fa-user',
-        label: 'User Info',
+        label: 'User Information',
         items: [
             {
-                routelink: 'userInfo',
+                routelink: 'UserInfo',
                 icon: 'fal fa-check',
-                label: 'User Info'
+                label: 'Create User Info'
             }
         ]
     },
     {
         routelink: 'Utilities',
-        icon: 'fas fa-building-columns',
+        icon: 'fa-regular fa-building-columns',
         label: 'Utilities',
         items: [
             {

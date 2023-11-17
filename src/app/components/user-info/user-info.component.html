@@ -1,1 +1,194 @@
-<p>user-info works!</p>
+<div class="card m-3">
+    <h1 class="card-header">User Information</h1>
+    <div class="card-body">
+        <div class="container">
+            <form [formGroup]="UserInfoForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div>
+                        <div class="col-13">
+                            <label for="name">Name </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="name">:</label>
+                        </div>
+                        <div class="col-35"> 
+                            <input type="text" id="name" placeholder="Insert Name" formControlName="name" class="form-control" [(ngModel)]="userInfo.name">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-13">
+                            <label for="address">Address </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="address">:</label>
+                        </div>
+                        <div class="col-35">
+                            <input type="text" id="address" placeholder="Insert Address" formControlName="address" class="form-control"
+                                [(ngModel)]="userInfo.address">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-13">
+                            <label for="mobileNo">Mobile </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="mobileNo">:</label>
+                        </div>
+                        <div class="col-35">
+                            <input type="text" id="mobileNo" placeholder="Insert Mobile No." formControlName="mobileNo" class="form-control"
+                                [(ngModel)]="userInfo.mobileNo">
+                        </div>
+                    </div> 
+                    <div>
+                        <div class="col-13">
+                            <label for="email">Email </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="email">:</label>
+                        </div>
+                        <div class="col-35">
+                            <input type="text" id="email" placeholder="Insert Email" formControlName="email" class="form-control" [(ngModel)]="userInfo.email"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-13">
+                            <label for="dateOfBirth"> Date Of Birth</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="dateOfBirth">:</label>
+                        </div>
+                        <div class="col-35">
+                            <kendo-datepicker [(ngModel)]="userInfo.dateOfBirth" formControlName="dateOfBirth"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
+                                style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                                [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
+                            </kendo-datepicker>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-13">
+                            <label for="bloodGroup">Blood Group </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="bloodGroup">:</label>
+                        </div>
+                        <div class="col-35">
+                            <select [(ngModel)]="userInfo.bloodGroup" style="padding: 5px 0;" id="bloodGroup"
+                                name="bloodGroup" formControlName="bloodGroup" class="form-control">
+                                <option value="">Select Blood Group</option>
+                                <option *ngFor="let group of BloodGroupList" [ngValue]="group.BloodGroup">
+                                    {{ group.BloodGroup }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <div class="col-13">
+                            <label for="religion">Religion</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="religion">:</label>
+                        </div>
+                        <div class="col-35">
+                            <select [(ngModel)]="userInfo.religion" style="padding: 5px 0;" id="religion"
+                                name="religion" formControlName="religion" class="form-control">
+                                <option value="">Select Religion</option>
+                                <option *ngFor="let Religion of ReligionList" [ngValue]="Religion.Religion">
+                                    {{ Religion.Religion }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-13">
+                            <label for="maritalStatus">Marital Status</label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="maritalStatus">:</label>
+                        </div>
+                        <div class="col-35">
+                            <select [(ngModel)]="userInfo.maritalStatus" style="padding: 5px 0;" id="maritalStatus"
+                                name="maritalStatus" formControlName="maritalStatus" class="form-control">
+                                <option value="">Select Marital Status</option>
+                                <option *ngFor="let Status of MaritalStatusList" [ngValue]="Status.MaritalStatus">
+                                    {{ Status.MaritalStatus }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <button class="add" id="refresh-button" (click)="addNewSupport()">Add To List</button>
+                </div> -->
+                <br>
+                <div class="row">
+                    <br>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>
+
+
+<div>
+    <h5 class="card-header">List of Users</h5>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <label class="total-rows-label">Total User: {{ rowCount }}</label>
+        </div>
+    </div>
+    <br>
+    <section class="example-container mat-elevation-z8" tabindex="0">
+        <table mat-table [dataSource]="dataSource" class="crm-mat-table">
+            <!-- <ng-container matColumnDef="view">
+                <th class="border mat-header-row "  mat-header-cell *matHeaderCellDef>View</th>
+                <td class="border"  mat-cell *matCellDef="let userInfoList">
+                  <button  class="adddesign" (click)="clickView(userInfoList)"> View</button>
+              </td>
+            </ng-container> -->
+            <ng-container matColumnDef="name">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Name </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="address">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Address </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.address}} </td>
+            </ng-container>
+            <ng-container matColumnDef="mobileNo">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Mobile No. </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.mobileNo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="email">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Email </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.email}} </td>
+            </ng-container>
+            <ng-container matColumnDef="dateOfBirth">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Date of Birth </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.dateOfBirth | date:'dd-MM-yyyy'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="bloodGroup">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Blood Group </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.bloodGroup}} </td>
+            </ng-container>
+            <ng-container matColumnDef="religion">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Religion </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.religion}} </td>
+            </ng-container>
+            <ng-container matColumnDef="maritalStatus">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Marital Status </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.maritalStatus}} </td>
+            </ng-container>
+            <tr class="color" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </section>
+</div>
