@@ -41,6 +41,8 @@ export class UserInfoComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private userInfoService: UserInfoService) {
     this.userInfoList = new MatTableDataSource(this.data);
+
+    this.dataSource = new MatTableDataSource<any>([]);
   
     this.userInfo = {
       name : "",
@@ -52,6 +54,18 @@ export class UserInfoComponent implements OnInit {
       religion:"",
       maritalStatus:"",
     }
+
+    this.UserInfoForm = this.formBuilder.group({
+
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      mobileNo: ['', Validators.required],
+      email: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      bloodGroup: ['', Validators.required],
+      religion: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
+  });
   
   }
 
@@ -73,17 +87,7 @@ export class UserInfoComponent implements OnInit {
 
   });
 
-    this.UserInfoForm = this.formBuilder.group({
-
-      name: ['', Validators.required],
-      address: ['', Validators.required],
-      mobileNo: ['', Validators.required],
-      email: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      bloodGroup: ['', Validators.required],
-      religion: ['', Validators.required],
-      maritalStatus: ['', Validators.required],
-  });
+    
 
 
 
