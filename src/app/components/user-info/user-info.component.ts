@@ -7,6 +7,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { UserInfoService } from 'src/app/services/userInfo/user-info.service';
 import { UserInfo } from 'src/app/models/user-info/user-info';
+import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
+
 
 @Component({
   selector: 'app-user-info',
