@@ -14,7 +14,7 @@ export class UserInfoService {
 
   public createUserInfo( userInfo: UserInfo):void{
     debugger
-     this.http.post(`${environment.apiUrl}/TblUserInfoes`,userInfo).subscribe((result)=>{
+     this.http.post(`${environment.apiUrl}/api/TblUserInfoes`,userInfo).subscribe((result)=>{
       console.log(result);
     });
   }
