@@ -23,14 +23,15 @@ import { MatListModule } from '@angular/material/list';
 import { ModalpopupComponent } from './modalpopup/modalpopup.component';
 //import { InitialOrderModalComponent } from './modals/merchandising/knit/initial-order-modal/initial-order-modal.component';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
 import { MatDialogModule } from '@angular/material/dialog';
-import { UserInfoComponent } from './components/user-info/user-info.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 
 @NgModule({
@@ -41,7 +42,10 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     SublevelMenuComponent,
     HeaderComponent,
-    ModalpopupComponent
+    ModalpopupComponent,
+    UserInfoComponent,
+    DepositComponent,
+    WithdrawComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     MatDialogModule,
     DateInputsModule,
+    DatePickerModule,
     MatTableModule,
     MatSnackBarModule,
     MatCheckboxModule,
