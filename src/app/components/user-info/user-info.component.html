@@ -11,8 +11,9 @@
                         <div class="col-clone-2">
                             <label for="name">:</label>
                         </div>
-                        <div class="col-35"> 
-                            <input type="text" id="name" placeholder="Insert Name" formControlName="name" class="form-control" [(ngModel)]="userInfo.name">
+                        <div class="col-35">
+                            <input type="text" id="name" placeholder="Insert Name" formControlName="name"
+                                class="form-control" [(ngModel)]="userInfo.name">
                         </div>
                     </div>
                     <div>
@@ -23,8 +24,8 @@
                             <label for="address">:</label>
                         </div>
                         <div class="col-35">
-                            <input type="text" id="address" placeholder="Insert Address" formControlName="address" class="form-control"
-                                [(ngModel)]="userInfo.address">
+                            <input type="text" id="address" placeholder="Insert Address" formControlName="address"
+                                class="form-control" [(ngModel)]="userInfo.address">
                         </div>
                     </div>
                 </div>
@@ -37,10 +38,10 @@
                             <label for="mobileNo">:</label>
                         </div>
                         <div class="col-35">
-                            <input type="text" id="mobileNo" placeholder="Insert Mobile No." formControlName="mobileNo" class="form-control"
-                                [(ngModel)]="userInfo.mobileNo">
+                            <input type="text" id="mobileNo" placeholder="Insert Mobile No." formControlName="mobileNo"
+                                class="form-control" [(ngModel)]="userInfo.mobileNo">
                         </div>
-                    </div> 
+                    </div>
                     <div>
                         <div class="col-13">
                             <label for="email">Email </label>
@@ -49,8 +50,8 @@
                             <label for="email">:</label>
                         </div>
                         <div class="col-35">
-                            <input type="text" id="email" placeholder="Insert Email" formControlName="email" class="form-control" [(ngModel)]="userInfo.email"
-                                required>
+                            <input type="text" id="email" placeholder="Insert Email" formControlName="email"
+                                class="form-control" [(ngModel)]="userInfo.email" required>
                         </div>
                     </div>
                 </div>
@@ -63,9 +64,9 @@
                             <label for="dateOfBirth">:</label>
                         </div>
                         <div class="col-35">
-                            <kendo-datepicker formControlName="dateOfBirth"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
-                                style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                            <kendo-datepicker formControlName="dateOfBirth" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
+                                style="margin-top: .3rem; border-color: #ccc;" #picker [format]="fullFormat"
                                 [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
                             </kendo-datepicker>
                         </div>
@@ -133,7 +134,7 @@
                     <input type="submit" value="Submit">
                 </div>
             </form>
-        </div> 
+        </div>
     </div>
 </div>
 
@@ -173,7 +174,8 @@
             </ng-container>
             <ng-container matColumnDef="dateOfBirth">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Date of Birth </th>
-                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.dateOfBirth | date:'dd-MM-yyyy'}} </td>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.dateOfBirth |
+                    date:'dd-MM-yyyy'}} </td>
             </ng-container>
             <ng-container matColumnDef="bloodGroup">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Blood Group </th>
