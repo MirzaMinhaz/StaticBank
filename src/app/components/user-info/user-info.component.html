@@ -63,7 +63,7 @@
                             <label for="dateOfBirth">:</label>
                         </div>
                         <div class="col-35">
-                            <kendo-datepicker [(ngModel)]="userInfo.dateOfBirth" formControlName="dateOfBirth"
+                            <kendo-datepicker formControlName="dateOfBirth"
                                 class="form-control" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
                                 style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
                                 [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
