@@ -14,14 +14,14 @@ export class UserInfoService {
 
   public createUserInfo( userInfo: UserInfo):void{
     debugger
-     this.http.post(`${environment.apiUrl}/UserInfoes`,userInfo).subscribe((result)=>{
+     this.http.post(`${environment.apiUrl}/TblUserInfoes`,userInfo).subscribe((result)=>{
       console.log(result);
     });
   }
 
 
   public getUserInfo ():Observable<string>{
-    return this.http.get<string>(`${environment.apiUrl}/UserInfos`);
+    return this.http.get<string>(`${environment.apiUrl}/TblUserInfoes`);
   }
 
   public getBloodGroupList() : any{
