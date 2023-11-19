@@ -34,6 +34,8 @@ export class UserInfoComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   infoList: any;
   rowCount: number = 0;
+  StatusList: any;
+  GenderList: any;
 
 
   
@@ -95,7 +97,8 @@ export class UserInfoComponent implements OnInit {
 
     this.BloodGroupList = this.userInfoService.getBloodGroupList();
     this.ReligionList = this.userInfoService.getReligionList();
-    this.MaritalStatusList = this.userInfoService.getMaritalStatusList();
+    this.GenderList = this.userInfoService.getGenderList();
+    this.StatusList = this.userInfoService.getStatusList();
 
   
 }

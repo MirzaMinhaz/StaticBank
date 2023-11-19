@@ -49,12 +49,20 @@ export class UserInfoService {
     return ReligionList;
   }
 
-  public getMaritalStatusList() : any{
-    let MaritalStatusList = [
-      {MaritalStatus : "Single"},
-      {MaritalStatus : "Married"}
+  public getGenderList() : any{
+    let GenderList = [
+      {Gender : "Male"},
+      {Gender : "Female"}
     ];
-    return MaritalStatusList;
+    return GenderList;
+  }
+
+  public getStatusList() : any{
+    let StatusList = [
+      {Status : "Active"},
+      {Status : "InActive"}
+    ];
+    return StatusList;
   }
 
 }

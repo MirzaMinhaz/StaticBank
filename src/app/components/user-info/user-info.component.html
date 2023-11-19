@@ -4,137 +4,257 @@
         <div class="container">
             <form [formGroup]="UserInfoForm" (ngSubmit)="onSubmit()">
                 <div class="row">
-                    <div>
-                        <div class="col-13">
-                            <label for="name">Name </label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="name">:</label>
-                        </div>
-                        <div class="col-35">
-                            <input type="text" id="name" placeholder="Insert Name" formControlName="name"
-                                class="form-control" [(ngModel)]="userInfo.name">
-                        </div>
+                    <div class="col-13">
+                        <label for="firstName">First Name</label>
                     </div>
-                    <div>
-                        <div class="col-13">
-                            <label for="address">Address </label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="address">:</label>
-                        </div>
-                        <div class="col-35">
-                            <input type="text" id="address" placeholder="Insert Address" formControlName="address"
-                                class="form-control" [(ngModel)]="userInfo.address">
-                        </div>
+                    <div class="col-clone-2">
+                        <label for="firstName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="firstName" placeholder="Enter First Name" formControlName="firstName"
+                            class="form-control" [(ngModel)]="userInfo.firstName" required>
+                    </div>
+                    <div class="col-13">
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="lastName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="lastName" placeholder="Enter Last Name" formControlName="lastName"
+                            class="form-control" [(ngModel)]="userInfo.lastName" required>
                     </div>
                 </div>
-                <div class="row">
-                    <div>
-                        <div class="col-13">
-                            <label for="mobileNo">Mobile </label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="mobileNo">:</label>
-                        </div>
-                        <div class="col-35">
-                            <input type="text" id="mobileNo" placeholder="Insert Mobile No." formControlName="mobileNo"
-                                class="form-control" [(ngModel)]="userInfo.mobileNo">
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-13">
-                            <label for="email">Email </label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="email">:</label>
-                        </div>
-                        <div class="col-35">
-                            <input type="text" id="email" placeholder="Insert Email" formControlName="email"
-                                class="form-control" [(ngModel)]="userInfo.email" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <div class="col-13">
-                            <label for="dateOfBirth"> Date Of Birth</label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="dateOfBirth">:</label>
-                        </div>
-                        <div class="col-35">
-                            <!-- <kendo-datepicker formControlName="dateOfBirth" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
-                                style="margin-top: .3rem; border-color: #ccc;" #picker [format]="fullFormat"
-                                [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
-                            </kendo-datepicker> -->
-                            <kendo-datepicker formControlName="dateOfBirth" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
-                                style="margin-top: .3rem; border-color: #ccc;" #picker [format]="fullFormat"
-                                [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
-                            </kendo-datepicker>
 
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-13">
-                            <label for="bloodGroup">Blood Group </label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="bloodGroup">:</label>
-                        </div>
-                        <div class="col-35">
-                            <select [(ngModel)]="userInfo.bloodGroup" style="padding: 5px 0;" id="bloodGroup"
-                                name="bloodGroup" formControlName="bloodGroup" class="form-control">
-                                <option value="">Select Blood Group</option>
-                                <option *ngFor="let group of BloodGroupList" [ngValue]="group.BloodGroup">
-                                    {{ group.BloodGroup }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
                 <div class="row">
-                    <div>
-                        <div class="col-13">
-                            <label for="religion">Religion</label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="religion">:</label>
-                        </div>
-                        <div class="col-35">
-                            <select [(ngModel)]="userInfo.religion" style="padding: 5px 0;" id="religion"
-                                name="religion" formControlName="religion" class="form-control">
-                                <option value="">Select Religion</option>
-                                <option *ngFor="let Religion of ReligionList" [ngValue]="Religion.Religion">
-                                    {{ Religion.Religion }}
-                                </option>
-                            </select>
-                        </div>
+                    <div class="col-13">
+                        <label for="dateOfBirth">Date of Birth</label>
                     </div>
-                    <div>
-                        <div class="col-13">
-                            <label for="maritalStatus">Marital Status</label>
-                        </div>
-                        <div class="col-clone-2">
-                            <label for="maritalStatus">:</label>
-                        </div>
-                        <div class="col-35">
-                            <select [(ngModel)]="userInfo.maritalStatus" style="padding: 5px 0;" id="maritalStatus"
-                                name="maritalStatus" formControlName="maritalStatus" class="form-control">
-                                <option value="">Select Marital Status</option>
-                                <option *ngFor="let Status of MaritalStatusList" [ngValue]="Status.MaritalStatus">
-                                    {{ Status.MaritalStatus }}
-                                </option>
-                            </select>
-                        </div>
+                    <div class="col-clone-2">
+                        <label for="dateOfBirth">:</label>
+                    </div>
+                    <div class="col-35">
+                        <kendo-datepicker formControlName="dateOfBirth" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }">
+                        </kendo-datepicker>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="gender">Gender</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="gender">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.gender" id="gender" name="gender" formControlName="gender"
+                            class="form-control">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <button class="add" id="refresh-button" (click)="addNewSupport()">Add To List</button>
-                </div> -->
-                <br>
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="email">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="email" placeholder="Enter Email" formControlName="email"
+                            class="form-control" [(ngModel)]="userInfo.email" required>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="email">Phone Number</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="email">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="email" placeholder="Enter Email" formControlName="email"
+                            class="form-control" [(ngModel)]="userInfo.email" required>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="address">Address</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="address">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="address" placeholder="Enter Address" formControlName="address"
+                            class="form-control" [(ngModel)]="userInfo.address" required>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="city">State/ Division</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="city">City</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="city">Country</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Country</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="firstName">Postal Code</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="firstName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="firstName" placeholder="Enter Postal Code" formControlName="firstName"
+                            class="form-control" [(ngModel)]="userInfo.firstName" required>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="dateOfBirth">Registration Date</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="dateOfBirth">:</label>
+                    </div>
+                    <div class="col-35">
+                        <kendo-datepicker formControlName="dateOfBirth" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }">
+                        </kendo-datepicker>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="city">User Role</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="city">Status</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Status</option>
+                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
+                                {{ genderOption }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="city">User Role</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="city">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                            class="form-control">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let Gen of GenderList" [value]="Gen.Gender">
+                                {{ Gen.Gender }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="status">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.status" id="status" name="status" formControlName="status"
+                            class="form-control">
+                            <option value="">Select Status</option>
+                            <option *ngFor="let State of StatusList" [value]="State.Status">
+                                {{ State.Status }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="comments">Comments</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="comments">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="comments" placeholder="Enter Comment" formControlName="comments"
+                            class="form-control" [(ngModel)]="userInfo.comments" required>
+                    </div>
+                </div>
+
                 <div class="row">
                     <br>
                     <input type="submit" value="Submit">
