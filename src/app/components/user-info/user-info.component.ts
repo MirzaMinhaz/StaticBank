@@ -36,6 +36,8 @@ export class UserInfoComponent implements OnInit {
   rowCount: number = 0;
   StatusList: any;
   GenderList: any;
+  UserRoleList: any;
+  DivisionList: any;
 
 
   
@@ -97,7 +99,9 @@ export class UserInfoComponent implements OnInit {
 
     this.BloodGroupList = this.userInfoService.getBloodGroupList();
     this.ReligionList = this.userInfoService.getReligionList();
+    this.DivisionList = this.userInfoService.getDivisionList();
     this.GenderList = this.userInfoService.getGenderList();
+    this.UserRoleList = this.userInfoService.getUserRoleList();
     this.StatusList = this.userInfoService.getStatusList();
 
   

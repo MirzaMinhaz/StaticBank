@@ -46,11 +46,11 @@
                         <label for="gender">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.gender" id="gender" name="gender" formControlName="gender"
+                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
                             class="form-control">
                             <option value="">Select Gender</option>
-                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
-                                {{ genderOption }}
+                            <option *ngFor="let Gen of GenderList" [value]="Gen.Gender">
+                                {{ Gen.Gender }}
                             </option>
                         </select>
                     </div>
@@ -69,14 +69,14 @@
                     </div>
 
                     <div class="col-13">
-                        <label for="email">Phone Number</label>
+                        <label for="mobileNo">Mobile Number</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="email">:</label>
+                        <label for="mobileNo">:</label>
                     </div>
                     <div class="col-35">
-                        <input type="text" id="email" placeholder="Enter Email" formControlName="email"
-                            class="form-control" [(ngModel)]="userInfo.email" required>
+                        <input type="text" id="mobileNo" placeholder="Enter Mobile Number" formControlName="mobileNo"
+                            class="form-control" [(ngModel)]="userInfo.mobileNo" required>
                     </div>
                 </div>
 
@@ -89,22 +89,22 @@
                         <label for="address">:</label>
                     </div>
                     <div class="col-35">
-                        <input type="text" id="address" placeholder="Enter Address" formControlName="address"
+                        <input type="text" id="address" placeholder="Enter Adress" formControlName="address"
                             class="form-control" [(ngModel)]="userInfo.address" required>
                     </div>
 
                     <div class="col-13">
-                        <label for="city">State/ Division</label>
+                        <label for="state">State/ Division</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="city">:</label>
+                        <label for="state">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                        <select [(ngModel)]="userInfo.state" id="state" name="state" formControlName="state"
                             class="form-control">
-                            <option value="">Select Gender</option>
-                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
-                                {{ genderOption }}
+                            <option value="">State/ Division</option>
+                            <option *ngFor="let Divi of DivisionList" [value]="Divi.Division">
+                                {{ Divi.Division }}
                             </option>
                         </select>
                     </div>
@@ -129,17 +129,17 @@
                     </div>
 
                     <div class="col-13">
-                        <label for="city">Country</label>
+                        <label for="country">Country</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="city">:</label>
+                        <label for="country">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                        <select [(ngModel)]="userInfo.country" id="country" name="country" formControlName="country"
                             class="form-control">
                             <option value="">Select Country</option>
-                            <option *ngFor="let genderOption of genderOptions" [value]="genderOption">
-                                {{ genderOption }}
+                            <option *ngFor="let Count of CountryList" [value]="Count.Country">
+                                {{ Count.Country }}
                             </option>
                         </select>
                     </div>
@@ -148,25 +148,25 @@
 
                 <div class="row">
                     <div class="col-13">
-                        <label for="firstName">Postal Code</label>
+                        <label for="postalCode">Postal Code</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="firstName">:</label>
+                        <label for="postalCode">:</label>
                     </div>
                     <div class="col-35">
-                        <input type="text" id="firstName" placeholder="Enter Postal Code" formControlName="firstName"
-                            class="form-control" [(ngModel)]="userInfo.firstName" required>
+                        <input type="text" id="postalCode" placeholder="Enter Postal Code" formControlName="postalCode"
+                            class="form-control" [(ngModel)]="userInfo.postalCode" required>
                     </div>
 
                     <div class="col-13">
-                        <label for="dateOfBirth">Registration Date</label>
+                        <label for="registrationDate">Registration Date</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="dateOfBirth">:</label>
+                        <label for="registrationDate">:</label>
                     </div>
                     <div class="col-35">
-                        <kendo-datepicker formControlName="dateOfBirth" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }">
+                        <kendo-datepicker formControlName="registrationDate" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['registrationDate'].errors }">
                         </kendo-datepicker>
                     </div>
                 </div>
@@ -209,17 +209,17 @@
 
                 <div class="row">
                     <div class="col-13">
-                        <label for="city">User Role</label>
+                        <label for="userRole">User Role</label>
                     </div>
                     <div class="col-clone-2">
-                        <label for="city">:</label>
+                        <label for="userRole">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
+                        <select [(ngModel)]="userInfo.userRole" id="userRole" name="userRole" formControlName="userRole"
                             class="form-control">
-                            <option value="">Select Gender</option>
-                            <option *ngFor="let Gen of GenderList" [value]="Gen.Gender">
-                                {{ Gen.Gender }}
+                            <option value="">Select User Role</option>
+                            <option *ngFor="let Role of UserRoleList" [value]="Role.UserRole">
+                                {{ Role.UserRole }}
                             </option>
                         </select>
                     </div>

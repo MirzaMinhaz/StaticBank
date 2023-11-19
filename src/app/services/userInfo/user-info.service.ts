@@ -57,6 +57,35 @@ export class UserInfoService {
     return GenderList;
   }
 
+  public getDivisionList() : any{
+    let DivisionList = [
+      {Division : "Dhaka"},
+      {Division : "Chittagong"},
+      {Division : "Rajshahi"},
+      {Division : "Sylhet"},
+      {Division : "Khulna"},
+      {Division : "Barishal"},
+      {Division : "Rangpur"},
+    ];
+    return DivisionList;
+  }
+
+  public getCountryList() : any{
+    let CountryList = [
+      {Country : "Bangladesh"},
+    ];
+    return CountryList;
+  }
+
+  public getUserRoleList() : any{
+    let UserRoleList = [
+      {UserRole : "Customer"},
+      {UserRole : "Staff"},
+      {UserRole : "Manager"}
+    ];
+    return UserRoleList;
+  }
+
   public getStatusList() : any{
     let StatusList = [
       {Status : "Active"},
