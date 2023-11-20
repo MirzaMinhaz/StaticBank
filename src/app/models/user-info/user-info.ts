@@ -1,11 +1,21 @@
 export class UserInfo {
     id?: number;
-    name = "";
-    address = "";
-    mobileNo = "";
-    email = "";
+    firstName = "";
+    LastName = "";
     dateOfBirth?: Date;
-    bloodGroup ="";
-    religion="";
-    maritalStatus="";
+    gender = "";
+    email = "";
+    mobileNo = "";
+    phoneNumber = "";
+    address = "";
+    city = "";
+    state = "";
+    country = "";
+    postalCode = "";
+    accountID = "";
+    branchID = "";
+    registrationDate?: Date;
+    userRole = "";
+    status = "";
+    comments = "";
 }
