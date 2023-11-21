@@ -38,7 +38,7 @@ export const navbarData: INavbarData[] = [
     },
     {
         routelink: 'Utilities',
-        icon: 'fa-regular fa-building-columns',
+        icon: 'fas fa-file-alt',
         label: 'Utilities',
         items: [
             {

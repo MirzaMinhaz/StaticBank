@@ -39,6 +39,7 @@ export class UserInfoComponent implements OnInit {
   UserRoleList: any;
   DivisionList: any;
   CityList: any;
+  CountryList: any;
 
 
   
@@ -52,26 +53,46 @@ export class UserInfoComponent implements OnInit {
     this.dataSource = new MatTableDataSource<any>([]);
   
     this.userInfo = {
-      name : "",
-      address: "",
-      mobileNo: "",
-      email: "",
-      dateOfBirth: new Date(),
-      bloodGroup :"",
-      religion:"",
-      maritalStatus:"",
+        firstName : "",
+        lastName : "",
+        gender : "",
+        mobileNo : "",
+        address : "",
+        city : "",
+        state : "",
+        postalCode : "",
+        country : "",
+        email : "",
+        dateOfBirth : new Date(),
+        bloodGroup : "",
+        religion : "",
+        maritalStatus : "",
+        registrationDate : new Date(),
+        userRole : "",
+        status : "",
+        comments : ""
     }
 
     this.UserInfoForm = this.formBuilder.group({
 
-      name: ['', Validators.required],
-      address: ['', Validators.required],
-      mobileNo: ['', Validators.required],
-      email: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      bloodGroup: ['', Validators.required],
-      religion: ['', Validators.required],
-      maritalStatus: ['', Validators.required],
+      firstName : ['', Validators.required],
+        lastName : ['', Validators.required],
+        gender : ['', Validators.required],
+        mobileNo : ['', Validators.required],
+        address : ['', Validators.required],
+        city : ['', Validators.required],
+        state : ['', Validators.required],
+        postalCode : ['', Validators.required],
+        country : ['', Validators.required],
+        email : ['', Validators.required],
+        dateOfBirth : ['', Validators.required],
+        bloodGroup : ['', Validators.required],
+        religion : ['', Validators.required],
+        maritalStatus : ['', Validators.required],
+        registrationDate : ['', Validators.required],
+        userRole : ['', Validators.required],
+        status : ['', Validators.required],
+        comments : ['', Validators.required],
   });
   
   }
@@ -102,6 +123,7 @@ export class UserInfoComponent implements OnInit {
     this.ReligionList = this.userInfoService.getReligionList();
     this.DivisionList = this.userInfoService.getDivisionList();
     this.CityList = this.userInfoService.getCityList();
+    this.CountryList = this.userInfoService.getCountryList();
     this.GenderList = this.userInfoService.getGenderList();
     this.UserRoleList = this.userInfoService.getUserRoleList();
     this.StatusList = this.userInfoService.getStatusList();

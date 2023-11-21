@@ -34,8 +34,10 @@
                         <label for="dateOfBirth">:</label>
                     </div>
                     <div class="col-35">
-                        <kendo-datepicker formControlName="dateOfBirth" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }">
+                        <kendo-datepicker [(ngModel)]="userInfo.dateOfBirth" formControlName="dateOfBirth"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
+                            style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                            [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
                         </kendo-datepicker>
                     </div>
 
@@ -46,10 +48,10 @@
                         <label for="gender">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
-                            class="form-control">
+                        <select [(ngModel)]="userInfo.gender" style="padding: 5px 0;" id="gender" name="gender"
+                            formControlName="gender" class="form-control">
                             <option value="">Select Gender</option>
-                            <option *ngFor="let Gen of GenderList" [value]="Gen.Gender">
+                            <option *ngFor="let Gen of GenderList" [ngValue]="Gen.Gender">
                                 {{ Gen.Gender }}
                             </option>
                         </select>
@@ -100,10 +102,10 @@
                         <label for="state">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.state" id="state" name="state" formControlName="state"
-                            class="form-control">
-                            <option value="">State/ Division</option>
-                            <option *ngFor="let Divi of DivisionList" [value]="Divi.Division">
+                        <select [(ngModel)]="userInfo.state" style="padding: 5px 0;" id="state" name="state"
+                            formControlName="state" class="form-control">
+                            <option value="">Select State/ Division</option>
+                            <option *ngFor="let Divi of DivisionList" [ngValue]="Divi.Division">
                                 {{ Divi.Division }}
                             </option>
                         </select>
@@ -119,8 +121,8 @@
                         <label for="city">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.city" id="city" name="city" formControlName="city"
-                            class="form-control">
+                        <select [(ngModel)]="userInfo.city" style="padding: 5px 0;" id="city" name="city"
+                            formControlName="city" class="form-control">
                             <option value="">Select City/ District</option>
                             <option *ngFor="let City of CityList" [value]="City.Cities">
                                 {{ City.Cities }}
@@ -135,8 +137,8 @@
                         <label for="country">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.country" id="country" name="country" formControlName="country"
-                            class="form-control">
+                        <select [(ngModel)]="userInfo.country" style="padding: 5px 0;" id="country" name="country"
+                            formControlName="country" class="form-control">
                             <option value="">Select Country</option>
                             <option *ngFor="let Count of CountryList" [value]="Count.Country">
                                 {{ Count.Country }}
@@ -179,8 +181,8 @@
                         <label for="userRole">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.userRole" id="userRole" name="userRole" formControlName="userRole"
-                            class="form-control">
+                        <select [(ngModel)]="userInfo.userRole" style="padding: 5px 0;" id="userRole" name="userRole"
+                            formControlName="userRole" class="form-control">
                             <option value="">Select User Role</option>
                             <option *ngFor="let Role of UserRoleList" [value]="Role.UserRole">
                                 {{ Role.UserRole }}
@@ -195,8 +197,8 @@
                         <label for="status">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.status" id="status" name="status" formControlName="status"
-                            class="form-control">
+                        <select [(ngModel)]="userInfo.status" style="padding: 5px 0;" id="status" name="status"
+                            formControlName="status" class="form-control">
                             <option value="">Select Status</option>
                             <option *ngFor="let State of StatusList" [value]="State.Status">
                                 {{ State.Status }}
@@ -217,7 +219,25 @@
                         <input type="text" id="comments" placeholder="Enter Comment" formControlName="comments"
                             class="form-control" [(ngModel)]="userInfo.comments" required>
                     </div>
+                    <div>
+                        <div class="col-13">
+                            <label for="bloodGroup">Blood Group </label>
+                        </div>
+                        <div class="col-clone-2">
+                            <label for="bloodGroup">:</label>
+                        </div>
+                        <div class="col-35">
+                            <select [(ngModel)]="userInfo.bloodGroup" style="padding: 5px 0;" style="padding: 5px 0;"
+                                id="bloodGroup" name="bloodGroup" formControlName="bloodGroup" class="form-control">
+                                <option value="">Select Blood Group</option>
+                                <option *ngFor="let group of BloodGroupList" [ngValue]="group.BloodGroup">
+                                    {{ group.BloodGroup }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
+
 
                 <div class="row">
                     <br>

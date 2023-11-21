@@ -1,19 +1,19 @@
 export class UserInfo {
-    id?: number;
+    userId?: number;
     firstName = "";
-    LastName = "";
-    dateOfBirth?: Date;
+    lastName = "";
     gender = "";
-    email = "";
     mobileNo = "";
-    phoneNumber = "";
     address = "";
     city = "";
     state = "";
-    country = "";
     postalCode = "";
-    accountID = "";
-    branchID = "";
+    country = "";
+    email = "";
+    dateOfBirth?: Date;
+    bloodGroup = "";
+    religion = "";
+    maritalStatus = "";
     registrationDate?: Date;
     userRole = "";
     status = "";
