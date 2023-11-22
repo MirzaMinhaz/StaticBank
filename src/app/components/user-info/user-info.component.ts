@@ -18,7 +18,7 @@ export class UserInfoComponent implements OnInit {
 
   userInfo: UserInfo;
   UserInfoForm: FormGroup;
-  displayedColumns: string[] = ['name', 'address', 'mobileNo', 'email', 'dateOfBirth', 'bloodGroup', 'religion', 'maritalStatus'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city', 'state', 'postalCode','country', 'email', 'country', 'dateOfBirth', 'bloodGroup', 'religion', 'maritalStatus','registrationDate', 'userRole', 'status', 'comments'];
 
   BloodGroupList: any;
   ReligionList: any;
@@ -121,6 +121,7 @@ export class UserInfoComponent implements OnInit {
 
     this.BloodGroupList = this.userInfoService.getBloodGroupList();
     this.ReligionList = this.userInfoService.getReligionList();
+    this.MaritalStatusList = this.userInfoService.getMaritalStatus();
     this.DivisionList = this.userInfoService.getDivisionList();
     this.CityList = this.userInfoService.getCityList();
     this.CountryList = this.userInfoService.getCountryList();

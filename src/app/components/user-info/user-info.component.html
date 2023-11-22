@@ -85,6 +85,41 @@
 
                 <div class="row">
                     <div class="col-13">
+                        <label for="religion">Religion</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="religion">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.religion" style="padding: 5px 0;" id="religion" name="religion"
+                            formControlName="religion" class="form-control">
+                            <option value="">Select Religion</option>
+                            <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
+                                {{ Reli.Religion }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="maritalStatus">Marital Status</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="maritalStatus">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.maritalStatus" style="padding: 5px 0;" id="maritalStatus" name="maritalStatus"
+                            formControlName="maritalStatus" class="form-control">
+                            <option value="">Select Marital Status</option>
+                            <option *ngFor="let Marital of MaritalStatusList" [value]="Marital.MaritalStatus">
+                                {{ Marital.MaritalStatus }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
                         <label for="address">Address</label>
                     </div>
                     <div class="col-clone-2">
@@ -268,21 +303,49 @@
                   <button  class="adddesign" (click)="clickView(userInfoList)"> View</button>
               </td>
             </ng-container> -->
-            <ng-container matColumnDef="name">
-                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Name </th>
-                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.name}} </td>
+            <ng-container matColumnDef="firstName">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> First Name </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.firstName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="lastName">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Last Name </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.lastName}} </td>
+            </ng-container>
+            <ng-container matColumnDef="gender">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Gender </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.gender}} </td>
+            </ng-container>
+            <ng-container matColumnDef="mobileNo">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Mobile No </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.mobileNo}} </td>
             </ng-container>
             <ng-container matColumnDef="address">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Address </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.address}} </td>
             </ng-container>
-            <ng-container matColumnDef="mobileNo">
-                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Mobile No. </th>
-                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.mobileNo}} </td>
+            <ng-container matColumnDef="city">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> City / District </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.city}} </td>
+            </ng-container>
+            <ng-container matColumnDef="state">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Division </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.state}} </td>
+            </ng-container>
+            <ng-container matColumnDef="postalCode">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Postal Code </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.postalCode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Country </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.country}} </td>
             </ng-container>
             <ng-container matColumnDef="email">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Email </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.email}} </td>
+            </ng-container>
+            <ng-container matColumnDef="country">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Country </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.country}} </td>
             </ng-container>
             <ng-container matColumnDef="dateOfBirth">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Date of Birth </th>
@@ -300,6 +363,23 @@
             <ng-container matColumnDef="maritalStatus">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Marital Status </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.maritalStatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="registrationDate">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Registration Date </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.registrationDate |
+                    date:'dd-MM-yyyy'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="userRole">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> User Role </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.userRole}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Status </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.status}} </td>
+            </ng-container>
+            <ng-container matColumnDef="comments">
+                <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Comments </th>
+                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.comments}} </td>
             </ng-container>
             <tr class="color" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

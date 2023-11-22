@@ -157,6 +157,14 @@ export class UserInfoService {
     return UserRoleList;
   }
 
+  public getMaritalStatus() : any{
+    let MaritalStatusList = [
+      {MaritalStatus : "Single"},
+      {MaritalStatus : "Married"}
+    ];
+    return MaritalStatusList;
+  }
+
   public getStatusList() : any{
     let StatusList = [
       {Status : "Active"},
