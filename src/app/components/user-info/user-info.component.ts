@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { UserInfoService } from 'src/app/services/userInfo/user-info.service';
 import { UserInfo } from 'src/app/models/user-info/user-info';
-import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
 
 
 @Component({
@@ -28,8 +27,6 @@ export class UserInfoComponent implements OnInit {
   submitted = false;
 
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  ActionTokenList: any;
   userInfoList: any;
   dataSource: MatTableDataSource<any>;
   infoList: any;
@@ -50,7 +47,7 @@ export class UserInfoComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private userInfoService: UserInfoService) {
     this.userInfoList = new MatTableDataSource(this.data);
 
-    this.dataSource = new MatTableDataSource<any>([]);
+    
   
     this.userInfo = {
         firstName : "",
@@ -75,7 +72,7 @@ export class UserInfoComponent implements OnInit {
 
     this.UserInfoForm = this.formBuilder.group({
 
-      firstName : ['', Validators.required],
+        firstName : ['', Validators.required],
         lastName : ['', Validators.required],
         gender : ['', Validators.required],
         mobileNo : ['', Validators.required],
@@ -94,6 +91,9 @@ export class UserInfoComponent implements OnInit {
         status : ['', Validators.required],
         comments : ['', Validators.required],
   });
+
+
+  this.dataSource = new MatTableDataSource<any>([]);
   
   }
 

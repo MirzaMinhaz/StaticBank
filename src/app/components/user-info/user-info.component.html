@@ -34,8 +34,8 @@
                         <label for="dateOfBirth">:</label>
                     </div>
                     <div class="col-35">
-                        <kendo-datepicker [(ngModel)]="userInfo.dateOfBirth" formControlName="dateOfBirth"
-                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
+                        <kendo-datepicker formControlName="dateOfBirth" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
                             style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
                             [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
                         </kendo-datepicker>
@@ -168,7 +168,9 @@
                     </div>
                     <div class="col-35">
                         <kendo-datepicker formControlName="registrationDate" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && f['registrationDate'].errors }">
+                            [ngClass]="{ 'is-invalid': submitted && f['registrationDate'].errors }"
+                            style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                            [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
                         </kendo-datepicker>
                     </div>
                 </div>
