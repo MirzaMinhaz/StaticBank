@@ -159,4 +159,3 @@ export class UserInfoComponent implements OnInit {
   public max = new Date(2030, 11, 31);
 
 }
-
