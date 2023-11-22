@@ -18,7 +18,20 @@ export class UserInfoComponent implements OnInit {
 
   userInfo: UserInfo;
   UserInfoForm: FormGroup;
-  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city', 'state', 'postalCode','country', 'email', 'country', 'dateOfBirth', 'bloodGroup', 'religion', 'maritalStatus','registrationDate', 'userRole', 'status', 'comments'];
+  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city', 
+  'state',
+  'postalCode',
+  'country', 
+  'email',
+  'dateOfBirth',
+  'bloodGroup', 
+   'religion',
+   'maritalStatus',
+  'registrationDate' ,
+  'userRole',
+  'status',
+   'comments'
+];
 
   BloodGroupList: any;
   ReligionList: any;
