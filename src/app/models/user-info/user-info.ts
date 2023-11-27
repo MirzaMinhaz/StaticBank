@@ -3,7 +3,7 @@ export class UserInfo {
     firstName = "";
     lastName = "";
     gender = "";
-    mobileNo = "";
+    mobileNo = ""; 
     address = "";
     city = "";
     state = "";
