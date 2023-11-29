@@ -107,8 +107,8 @@
                         <label for="maritalStatus">:</label>
                     </div>
                     <div class="col-35">
-                        <select [(ngModel)]="userInfo.maritalStatus" style="padding: 5px 0;" id="maritalStatus" name="maritalStatus"
-                            formControlName="maritalStatus" class="form-control">
+                        <select [(ngModel)]="userInfo.maritalStatus" style="padding: 5px 0;" id="maritalStatus"
+                            name="maritalStatus" formControlName="maritalStatus" class="form-control">
                             <option value="">Select Marital Status</option>
                             <option *ngFor="let Marital of MaritalStatusList" [value]="Marital.MaritalStatus">
                                 {{ Marital.MaritalStatus }}
@@ -138,11 +138,10 @@
                     </div>
                     <div class="col-35">
                         <select [(ngModel)]="userInfo.state" style="padding: 5px 0;" id="state" name="state"
-                            formControlName="state" class="form-control">
+                            formControlName="state" class="form-control" (change)="onDivisionChange()">
                             <option value="">Select State/ Division</option>
-                            <option *ngFor="let Divi of DivisionList" [ngValue]="Divi.Division">
-                                {{ Divi.Division }}
-                            </option>
+                            <option *ngFor="let division of DivisionList" [value]="division.Division">{{
+                                division.Division }}</option>
                         </select>
                     </div>
                 </div>
@@ -159,9 +158,7 @@
                         <select [(ngModel)]="userInfo.city" style="padding: 5px 0;" id="city" name="city"
                             formControlName="city" class="form-control">
                             <option value="">Select City/ District</option>
-                            <option *ngFor="let City of CityList" [value]="City.Cities">
-                                {{ City.Cities }}
-                            </option>
+                            <option *ngFor="let city of filteredCityList" [value]="city">{{ city }}</option>
                         </select>
                     </div>
 
@@ -331,11 +328,11 @@
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Division </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.state}} </td>
             </ng-container>
-             <ng-container matColumnDef="postalCode">
+            <ng-container matColumnDef="postalCode">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Postal Code </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.postalCode}} </td>
             </ng-container>
-           <ng-container matColumnDef="country">
+            <ng-container matColumnDef="country">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Country </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.country}} </td>
             </ng-container>
@@ -343,12 +340,12 @@
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Email </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.email}} </td>
             </ng-container>
-           <ng-container matColumnDef="dateOfBirth">
+            <ng-container matColumnDef="dateOfBirth">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Date of Birth </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.dateOfBirth |
                     date:'dd-MM-yyyy'}} </td>
-             </ng-container>
-           <ng-container matColumnDef="bloodGroup">
+            </ng-container>
+            <ng-container matColumnDef="bloodGroup">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Blood Group </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.bloodGroup}} </td>
             </ng-container>
@@ -360,23 +357,23 @@
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Marital Status </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.maritalStatus}} </td>
             </ng-container>
-              <ng-container matColumnDef="registrationDate">
+            <ng-container matColumnDef="registrationDate">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Registration Date </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.registrationDate |
                     date:'dd-MM-yyyy'}} </td>
             </ng-container>
-             <ng-container matColumnDef="userRole">
+            <ng-container matColumnDef="userRole">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> User Role </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.userRole}} </td>
             </ng-container>
-             <ng-container matColumnDef="status">
+            <ng-container matColumnDef="status">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Status </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.status}} </td>
             </ng-container>
-         <ng-container matColumnDef="comments">
+            <ng-container matColumnDef="comments">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Comments </th>
                 <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.comments}} </td>
-            </ng-container> 
+            </ng-container>
             <tr class="color" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

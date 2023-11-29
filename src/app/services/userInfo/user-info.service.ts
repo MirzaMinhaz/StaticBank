@@ -71,6 +71,25 @@ export class UserInfoService {
     return DivisionList;
   }
 
+  public getCityListByDivision(division: string): string[] {
+    let CityList = [
+      // Define your cities based on divisions
+      // Format: { Division: 'Dhaka', Cities: ['City1', 'City2', ...] }
+      { Division: 'Dhaka', Cities: ['Dhaka', 'Gazipur', 'Tangail', 'Manikganj', 'Munshiganj', 'Narayanganj', 'Narsingdi', 'Rajbari', 'Faridpur', 'Gopalganj', 'Madaripur', 'Shariatpur', 'Kishoreganj'] },
+      { Division: 'Chittagong', Cities: ['Chittagong', 'Comilla', 'Coxs Bazar', 'Feni', 'Brahmanbaria', 'Chandpur', 'Lakshmipur', 'Noakhali', 'Rangamati', 'Khagrachari', 'Bandarban']    },
+      { Division: 'Rajshahi', Cities: ['Bogra', 'Joypurhat', 'Naogaon', 'Natore', 'Chapai Nawabganj', 'Pabna', 'Rajshahi', 'Sirajganj']    },
+      { Division: 'Rajshahi', Cities: ['Bogra', 'Joypurhat', 'Naogaon', 'Natore', 'Chapai Nawabganj', 'Pabna', 'Rajshahi', 'Sirajganj']    },
+      { Division: 'Sylhet', Cities: ['Habiganj', 'Moulvibazar', 'Sylhet', 'Sunamganj']   },
+      { Division: 'Khulna', Cities: ['Bagerhat', 'Chuadanga', 'Jessore', 'Jhenaidah', 'Khulna', 'Kushtia', 'Magura', 'Meherpur', 'Narail', 'Satkhira']    },
+      { Division: 'Barishal', Cities: ['Barisal', 'Bhola', 'Jhalokathi', 'Patuakhali', 'Pirojpur', 'Barguna']   },
+      { Division: 'Rangpur', Cities: ['Rangpur', 'Dinajpur', 'Gaibandha', 'Kurigram', 'Lalmonirhat', 'Nilphamari', 'Panchagarh', 'Thakurgaon']    }
+      // ... Add other divisions and their cities
+    ];
+  
+    const selectedDivisionCities = CityList.find(item => item.Division === division)?.Cities || [];
+    return selectedDivisionCities;
+  }
+
 
   public getCityList() : any{
     let CityList = [

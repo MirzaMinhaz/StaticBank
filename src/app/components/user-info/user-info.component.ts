@@ -16,22 +16,24 @@ import { UserInfo } from 'src/app/models/user-info/user-info';
 })
 export class UserInfoComponent implements OnInit {
 
+  
+
   userInfo: UserInfo;
   UserInfoForm: FormGroup;
-  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city', 
-  'state',
-  'postalCode',
-  'country', 
-  'email',
-  'dateOfBirth',
-  'bloodGroup', 
-  'religion',
-  'maritalStatus',
-  'registrationDate' ,
-  'userRole',
-  'status',
-   'comments'
-];
+  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city',
+    'state',
+    'postalCode',
+    'country',
+    'email',
+    'dateOfBirth',
+    'bloodGroup',
+    'religion',
+    'maritalStatus',
+    'registrationDate',
+    'userRole',
+    'status',
+    'comments'
+  ];
 
   BloodGroupList: any;
   ReligionList: any;
@@ -50,9 +52,14 @@ export class UserInfoComponent implements OnInit {
   DivisionList: any;
   CityList: any;
   CountryList: any;
-
+  Division: string[] = [];
+  Cities: string[] = [];
+  divisionList: any;
 
   
+
+
+
   //get f() { return this.ActionTokenList; }
   get f() { return this.UserInfoForm.controls; }
 
@@ -60,57 +67,62 @@ export class UserInfoComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private userInfoService: UserInfoService) {
     this.userInfoList = new MatTableDataSource(this.data);
 
+    this.divisionList = this.userInfoService.getDivisionList();
+
     
-  
+
+
+
     this.userInfo = {
-        firstName : "",
-        lastName : "",
-        gender : "",
-        mobileNo : "",
-        address : "",
-        city : "",
-        state : "",
-        postalCode : "",
-        country : "",
-        email : "",
-        dateOfBirth : new Date(),
-        bloodGroup : "",
-        religion : "",
-        maritalStatus : "",
-        registrationDate : new Date(),
-        userRole : "",
-        status : "",
-        comments : ""
+      firstName: "",
+      lastName: "",
+      gender: "",
+      mobileNo: "",
+      address: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      country: "",
+      email: "",
+      dateOfBirth: new Date(),
+      bloodGroup: "",
+      religion: "",
+      maritalStatus: "",
+      registrationDate: new Date(),
+      userRole: "",
+      status: "",
+      comments: ""
     }
 
     this.UserInfoForm = this.formBuilder.group({
 
-        firstName : ['', Validators.required],
-        lastName : ['', Validators.required],
-        gender : ['', Validators.required],
-        mobileNo : ['', Validators.required],
-        address : ['', Validators.required],
-        city : ['', Validators.required],
-        state : ['', Validators.required],
-        postalCode : ['', Validators.required],
-        country : ['', Validators.required],
-        email : ['', Validators.required],
-        dateOfBirth : ['', Validators.required],
-        bloodGroup : ['', Validators.required],
-        religion : ['', Validators.required],
-        maritalStatus : ['', Validators.required],
-        registrationDate : ['', Validators.required],
-        userRole : ['', Validators.required],
-        status : ['', Validators.required],
-        comments : ['', Validators.required],
-  });
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      gender: ['', Validators.required],
+      mobileNo: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required],
+      email: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      bloodGroup: ['', Validators.required],
+      division: ['', Validators.required],
+      religion: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
+      registrationDate: ['', Validators.required],
+      userRole: ['', Validators.required],
+      status: ['', Validators.required],
+      comments: ['', Validators.required],
+    });
 
 
-  this.dataSource = new MatTableDataSource<any>([]);
-  
+    this.dataSource = new MatTableDataSource<any>([]);
+
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
 
     this.userInfoService.getUserInfo().subscribe((info: string) => {
       this.infoList = info;
@@ -118,17 +130,17 @@ export class UserInfoComponent implements OnInit {
       this.initializeTable();
 
 
-      this.infoList.forEach((item:any) => {
-        item.dateOfBirth  = item.dateOfBirth .split("T")[0];
+      this.infoList.forEach((item: any) => {
+        item.dateOfBirth = item.dateOfBirth.split("T")[0];
+      });
+
+      this.userInfoList.data = this.infoList;
+
+      this.rowCount = this.userInfoList.data.length;
+
     });
 
-    this.userInfoList.data = this.infoList;
 
-    this.rowCount = this.userInfoList.data.length;
-
-  });
-
-    
 
 
 
@@ -142,19 +154,33 @@ export class UserInfoComponent implements OnInit {
     this.UserRoleList = this.userInfoService.getUserRoleList();
     this.StatusList = this.userInfoService.getStatusList();
 
-  
-}
+    interface Division {
+      
+    }
+
+
+  }
+
+  filteredCityList: string[] = [];
 
   
+
+
+  onDivisionChange() {
+    const selectedDivision = this.userInfo.state;
+    this.filteredCityList = this.userInfoService.getCityListByDivision(selectedDivision);
+  }
+
+
 
   onSubmit() {
     debugger
-    
-    this.userInfoService.createUserInfo(this.userInfo);
-    
-     this.submitted = true;
 
-     this.UserInfoForm.reset();
+    this.userInfoService.createUserInfo(this.userInfo);
+
+    this.submitted = true;
+
+    this.UserInfoForm.reset();
   }
 
   initializeTable() {
