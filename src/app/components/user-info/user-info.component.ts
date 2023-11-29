@@ -148,7 +148,7 @@ export class UserInfoComponent implements OnInit {
     this.ReligionList = this.userInfoService.getReligionList();
     this.MaritalStatusList = this.userInfoService.getMaritalStatus();
     this.DivisionList = this.userInfoService.getDivisionList();
-    this.CityList = this.userInfoService.getCityList();
+   // this.CityList = this.userInfoService.getCityList();
     this.CountryList = this.userInfoService.getCountryList();
     this.GenderList = this.userInfoService.getGenderList();
     this.UserRoleList = this.userInfoService.getUserRoleList();
