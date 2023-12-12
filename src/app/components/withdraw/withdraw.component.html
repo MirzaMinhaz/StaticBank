@@ -1,1 +1,95 @@
-<p>withdraw works!</p>
+<div class="card m-3">
+    <h1 class="card-header">Withdraw</h1>
+    <div class="card-body">
+        <div class="container">
+            <form [formGroup]="UserInfoForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-13">
+                        <label for="userId">User ID</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="userId">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="userId" placeholder="Enter User ID" formControlName="userId"
+                            class="form-control" [(ngModel)]="userInfo.userId" required>
+                    </div>
+                    <div class="col-13">
+                        <label for="userName">User Name</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="userName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="userName" placeholder="Enter User Name" formControlName="userName"
+                            class="form-control" [(ngModel)]="userInfo.userName" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="accountId">Account ID:</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="accountId">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="accountId" placeholder="Enter Account Id" formControlName="accountId"
+                            class="form-control" [(ngModel)]="userInfo.accountId" required>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="withdrawalAmount">Withdrawal Amount:</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="withdrawalAmount">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="withdrawalAmount" placeholder="Enter Withdrawal Amount" formControlName="withdrawalAmount"
+                            class="form-control" [(ngModel)]="userInfo.withdrawalAmount" required>
+                    </div>
+                </div> //Withdrawal Method:
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="withdrawalMethod">Withdrawal Method:</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="withdrawalMethod">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.withdrawalMethod" style="padding: 5px 0;" id="withdrawalMethod" name="religion"
+                            formControlName="withdrawalMethod" class="form-control">
+                            <option value="">Select Religion</option>
+                            <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
+                                {{ Reli.Religion }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="withdrawalBranch">Withdrawal Branch:</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="withdrawalBranch">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.withdrawalBranch" style="padding: 5px 0;" id="withdrawalBranch" name="religion"
+                            formControlName="withdrawalBranch" class="form-control">
+                            <option value="">Select Religion</option>
+                            <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
+                                {{ Reli.Religion }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <br>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
