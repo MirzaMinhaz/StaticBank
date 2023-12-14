@@ -60,7 +60,7 @@
                     <div class="col-35">
                         <select [(ngModel)]="userInfo.withdrawalMethod" style="padding: 5px 0;" id="withdrawalMethod" name="religion"
                             formControlName="withdrawalMethod" class="form-control">
-                            <option value="">Select Religion</option>
+                            <option value="">Select Method</option>
                             <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
                                 {{ Reli.Religion }}
                             </option>
@@ -76,9 +76,9 @@
                     <div class="col-35">
                         <select [(ngModel)]="userInfo.withdrawalBranch" style="padding: 5px 0;" id="withdrawalBranch" name="religion"
                             formControlName="withdrawalBranch" class="form-control">
-                            <option value="">Select Religion</option>
+                            <option value="">Select Branch</option>
                             <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
-                                {{ Reli.Religion }}
+                                {{ Reli.Branch }}
                             </option>
                         </select>
                     </div>
