@@ -13,152 +13,189 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class WithdrawComponent {
 
-  WithdrawForm: FormGroup;
+  userInfo: UserInfo;
+  UserInfoForm: FormGroup;
+  displayedColumns: string[] = ['firstName', 'lastName', 'gender', 'mobileNo', 'address', 'city',
+    'state',
+    'postalCode',
+    'country',
+    'email',
+    'dateOfBirth',
+    'bloodGroup',
+    'religion',
+    'maritalStatus',
+    'registrationDate',
+    'userRole',
+    'status',
+    'comments'
+  ];
+
+  // withdraw = {
+  //   userId : "",
+  //   userName: "",
+  //   accountId: "",
+  //   withdrawalAmount: "",
+  //   withdrawalMethod: "",
+  //   withdrawalBranch :"",
+  //   withdrawalDate: Date,
+  // }
+
+  BloodGroupList: any;
+  ReligionList: any;
+  MaritalStatusList: any;
+  data: any;
   submitted = false;
-  crmSupportList: any;
-  issueCategoryList :any;
-  IssueStatusList:any;
-  CategoryList: any;
-  TaskAssignedToList: any;
-  PriorityList:any;
-  //issueCategory: string ;
-  issueInfo: any;
 
 
-  crmSupport = {
-    issueName : "",
-    //issueCategory: "",
-    categoryId: "",
-    issueStatus: "",
-    issuePriority: "",
-    issueResolution: "",
-    description :"",
-    issueDate: Date,
-    requestedBy:"",
-    requestedPhone:"",
-    requestedEmail:"",
-    taskAssignedTo:"",
-    assignedDate: Date,
-    completedDate: null as Date | null,
+  userInfoList: any;
+  dataSource: MatTableDataSource<any>;
+  infoList: any;
+  rowCount: number = 0;
+  StatusList: any;
+  GenderList: any;
+  UserRoleList: any;
+  DivisionList: any;
+  CityList: any;
+  CountryList: any;
+  Division: string[] = [];
+  Cities: string[] = [];
+  divisionList: any;
+
+  
+
+
+
+  //get f() { return this.ActionTokenList; }
+  get f() { return this.UserInfoForm.controls; }
+
+
+  constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private userInfoService: UserInfoService) {
+    this.userInfoList = new MatTableDataSource(this.data);
+
+    this.divisionList = this.userInfoService.getDivisionList();
+
+    
+
+
+
+    this.userInfo = {
+      firstName: "",
+      lastName: "",
+      gender: "",
+      mobileNo: "",
+      address: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      country: "",
+      email: "",
+      dateOfBirth: new Date(),
+      bloodGroup: "",
+      religion: "",
+      maritalStatus: "",
+      registrationDate: new Date(),
+      userRole: "",
+      status: "",
+      comments: ""
+    }
+
+    this.UserInfoForm = this.formBuilder.group({
+
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      gender: ['', Validators.required],
+      mobileNo: ['', Validators.required],
+      address: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      country: ['', Validators.required],
+      email: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      bloodGroup: ['', Validators.required],
+      division: ['', Validators.required],
+      religion: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
+      registrationDate: ['', Validators.required],
+      userRole: ['', Validators.required],
+      status: ['', Validators.required],
+      comments: ['', Validators.required],
+    });
+
+
+    this.dataSource = new MatTableDataSource<any>([]);
+
   }
-
-  
-  
-
-  constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private commonService: CommonService, private crmSupportService: CrmSupportService) { }
 
   ngOnInit(): void {
-    this.WithdrawForm = this.formBuilder.group({
-      issueName: ['', Validators.required],
-      issueCategory: ['', Validators.required],
-      issueStatus: ['', Validators.required],
-      issuePriority: ['', Validators.required],
-      issueResolution: ['', Validators.required],
-      description: ['', Validators.required],
-      issueDate: ['', Validators.required],
-      requestedBy: ['', Validators.required],
-      requestedPhone: ['', Validators.required],
-      requestedEmail: ['', Validators.required],
-      taskAssignedTo: ['', Validators.required],
-      assignedDate: ['', Validators.required],
-  });
 
-  this.crmSupportService.getIssueCategory ().subscribe((issueCategory:string)=>{
-    //debugger
-    this.issueCategoryList = issueCategory;
-  });
-  this.TaskAssignedToList = this.crmSupportService.getTaskAssignedToList();
-  this.IssueStatusList = this.crmSupportService.getIssueStatusList();
-  this.PriorityList = this.crmSupportService.getPriorityList();
-  this.CategoryList = this.crmSupportService.getIssueCategoryById();
+    this.userInfoService.getUserInfo().subscribe((info: string) => {
+      this.infoList = info;
 
-  
+      this.initializeTable();
 
-  this.route.queryParams.subscribe(params => {
-    //debugger
-    var parameter = params['param'];
-    this.crmSupportService.getIssueById(parameter).subscribe((list: any) => {
-      this.issueInfo = list;
-      debugger
-      this.issueInfo.forEach((item:any) => {
 
-        this.crmSupport.issueName  = item.issueName;
-        this.crmSupport.description= item.description;
-        this.crmSupport.issueDate = item.issueDate.split("T");
-         this.crmSupport.requestedBy = item.requestedBy;
-         this.crmSupport.requestedPhone = item.requestedPhone;
-         this.crmSupport.requestedEmail = item.requestedEmail;
-         this.crmSupport.taskAssignedTo = item.taskAssignedTo;
-         this.crmSupport.assignedDate = item.assignedDate.split("T");
-         //this.crmSupport.issueCategory = item.issueCategory[0];
-         this.crmSupport.issueStatus = item.issueStatus;
-         this.crmSupport.issuePriority = item.issuePriority;
-         this.crmSupport.issueResolution = item.issueResolution;
+      this.infoList.forEach((item: any) => {
+        item.dateOfBirth = item.dateOfBirth.split("T")[0];
       });
-    });
-  });
-}
 
+      this.userInfoList.data = this.infoList;
 
-  get f() { return this.WithdrawForm.controls; }
-
-  onCategorySelected($event: any) {
-    //debugger
-    const categoryName = $event;
-    
-    this.issueCategoryList.forEach((item : any) => {
-
-      if(categoryName == item.categoryName){
-        this.crmSupport.categoryId = item.categoryId;
-      }
+      this.rowCount = this.userInfoList.data.length;
 
     });
-    
 
-  }
-  
-  ListOfArray : string[] = [];
-addNewSupport() {
-    //debugger
-     let newUsersArray = this.ListOfArray;
-     const newObj = { ...this.crmSupport };
-      //newUsersArray.unshift(newObj);
-      this.ListOfArray = [...newUsersArray] 
-      //this.ListOfArray.push(newObj);
-}
+
+
+
+
+    this.BloodGroupList = this.userInfoService.getBloodGroupList();
+    this.ReligionList = this.userInfoService.getReligionList();
+    this.MaritalStatusList = this.userInfoService.getMaritalStatus();
+    this.DivisionList = this.userInfoService.getDivisionList();
+   // this.CityList = this.userInfoService.getCityList();
+    this.CountryList = this.userInfoService.getCountryList();
+    this.GenderList = this.userInfoService.getGenderList();
+    this.UserRoleList = this.userInfoService.getUserRoleList();
+    this.StatusList = this.userInfoService.getStatusList();
+
+    interface Division {
       
-
-  async saveCRMSupport(){
-    debugger
-    //var crmSupportList = prepareCRMSupportModel(this.crmSupport);
-
-    if (this.crmSupport.issueStatus === "Completed") {
-      this.crmSupport.completedDate = new Date();
     }
-     
-      await this.crmSupportService.createCRMSupport(this.crmSupport); 
 
-      // Reset the form after saving
-  this.WithdrawForm.reset();
 
-  // You might also want to reset the crmSupport object if needed
-  this.crmSupport = {
-    issueName: "",
-    categoryId: "",
-    issueStatus: "",
-    issuePriority: "",
-    issueResolution: "",
-    description: "",
-    issueDate: Date,
-    requestedBy: "",
-    requestedPhone: "",
-    requestedEmail: "",
-    taskAssignedTo: "",
-    assignedDate: Date,
-    completedDate: null as Date | null,
-  };
-    
   }
+
+  filteredCityList: string[] = [];
+
+  
+
+
+  onDivisionChange() {
+    const selectedDivision = this.userInfo.state;
+    this.filteredCityList = this.userInfoService.getCityListByDivision(selectedDivision);
+  }
+
+
+
+  onSubmit() {
+    debugger
+
+    this.userInfoService.createUserInfo(this.userInfo);
+
+    this.submitted = true;
+
+    this.UserInfoForm.reset();
+  }
+
+  initializeTable() {
+    const dataSource = new MatTableDataSource(this.infoList);
+    //dataSource.paginator = this.paginator;
+    this.dataSource = dataSource;
+    this.rowCount = this.userInfoList.data.length;
+  }
+
+
   public twoDigitYearMax = 30;
   public fullFormat = "dd-MMM-yyyy";
 
@@ -167,4 +204,3 @@ addNewSupport() {
 
 }
 
-}
