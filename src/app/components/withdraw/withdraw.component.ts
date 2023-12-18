@@ -13,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class WithdrawComponent {
 
-  CRMSupportForm: FormGroup;
+  WithdrawForm: FormGroup;
   submitted = false;
   crmSupportList: any;
   issueCategoryList :any;
@@ -48,7 +48,7 @@ export class WithdrawComponent {
   constructor(public formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private commonService: CommonService, private crmSupportService: CrmSupportService) { }
 
   ngOnInit(): void {
-    this.CRMSupportForm = this.formBuilder.group({
+    this.WithdrawForm = this.formBuilder.group({
       issueName: ['', Validators.required],
       issueCategory: ['', Validators.required],
       issueStatus: ['', Validators.required],
@@ -100,7 +100,7 @@ export class WithdrawComponent {
 }
 
 
-  get f() { return this.CRMSupportForm.controls; }
+  get f() { return this.WithdrawForm.controls; }
 
   onCategorySelected($event: any) {
     //debugger
@@ -139,7 +139,7 @@ addNewSupport() {
       await this.crmSupportService.createCRMSupport(this.crmSupport); 
 
       // Reset the form after saving
-  this.CRMSupportForm.reset();
+  this.WithdrawForm.reset();
 
   // You might also want to reset the crmSupport object if needed
   this.crmSupport = {
