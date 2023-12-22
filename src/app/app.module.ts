@@ -28,6 +28,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     ModalpopupComponent,
     UserInfoComponent,
     DepositComponent,
-    WithdrawComponent
+    WithdrawComponent,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
