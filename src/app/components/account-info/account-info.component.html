@@ -1,1 +1,166 @@
-<p>account-info works!</p>
+<div class="card m-3">
+    <h1 class="card-header">Account Information</h1>
+    <div class="card-body">
+        <div class="container">
+                <div class="row">
+                    <div class="col-13">
+                        <label for="userName">User Name</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="userName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="firstName" placeholder="Enter First Name"
+                            class="form-control" [(ngModel)]="userInfo.firstName" required>
+                    </div>
+                    <div class="col-13">
+                        <label for="accountNumber">Account Number</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="accountNumber">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="accountNumber" placeholder="Enter Account No"
+                            class="form-control" [(ngModel)]="accInfo.accountNumber" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="accountType">Account Type</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="accountType">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select style="padding: 5px 0;" id="accountType" name="accountType" [(ngModel)]="accInfo.accountType">
+                            <option value="">Select issue Category</option>
+                            <option *ngFor="let item of allitemNameList" [ngValue]="item">
+                                {{ item}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="balance">Balance</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="balance">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="balance" placeholder="Enter Balance"
+                            class="form-control" [(ngModel)]="accInfo.balance" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="dateOpened">Date Opened</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="dateOpened">:</label>
+                    </div>
+                    <div class="col-35">
+                        <kendo-datepicker formControlName="dateOpened" class="form-control"
+                            style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                            [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
+                        </kendo-datepicker>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="status">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="accInfo.religion" style="padding: 5px 0;" id="status" name="status" 
+                        class="form-control">
+                            <option value="">Select Status</option>
+                            <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
+                                {{ Reli.Religion }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="overDraftLimit">Over Draft Limit</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="overDraftLimit">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="userInfo.overDraftLimit" style="padding: 5px 0;" id="religion" name="overDraftLimit" 
+                        class="form-control">
+                            <option value="">Select Over Draft Limit</option>
+                            <option *ngFor="let Reli of ReligionList" [value]="Reli.Religion">
+                                {{ Reli.Religion }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="interestRate">Interest Rate</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="interestRate">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="interestRate" placeholder="Enter Interest Rate"
+                            class="form-control" [(ngModel)]="accInfo.interestRate" required>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="lastTransactionDate">Last Transaction Date</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="lastTransactionDate">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="address" placeholder="Enter Last Transaction Date"
+                            class="form-control" [(ngModel)]="accInfo.lastTransactionDate" required>
+                    </div>
+
+                    <div class="col-13">
+                        <label for="branchName">Branch Name</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="branchName">:</label>
+                    </div>
+                    <div class="col-35">
+                        <select [(ngModel)]="accInfo.branchName" style="padding: 5px 0;" id="branchName" name="branchName"
+                            formControlName="branchName" class="form-control">
+                            <option value="">Select State/ Division</option>
+                            <option *ngFor="let division of DivisionList" [value]="division.Division">{{
+                                division.Division }}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-13">
+                        <label for="comments">Comments</label>
+                    </div>
+                    <div class="col-clone-2">
+                        <label for="comments">:</label>
+                    </div>
+                    <div class="col-35">
+                        <input type="text" id="comments" placeholder="Add Comment"
+                            class="form-control" [(ngModel)]="accInfo.comments" required>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <button class="save" (click)="saveScMlcGroupApproval()">Save</button>
+                </div>
+        </div>
+    </div>
+</div>
