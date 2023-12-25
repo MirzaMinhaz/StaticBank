@@ -10,6 +10,10 @@ export class AccountInfoService {
 
   constructor(private http: HttpClient) { }
 
+  public getAccountType(): Observable<string> {
+    return this.http.get<string>(`${environment.apiUrl}/TblAccountTypes/getAccountType`);
+  }
+
 
   public getAccountStatus() : any{
     let AccountStatusList = [

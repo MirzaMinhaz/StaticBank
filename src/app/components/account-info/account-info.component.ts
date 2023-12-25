@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { AccountInfoService } from 'src/app/services/accountInfo/account-info.service';
+import { AccountInfoService } from 'src/app/services/accountinfo/account-info.service';
 
 @Component({
   selector: 'app-account-info',
