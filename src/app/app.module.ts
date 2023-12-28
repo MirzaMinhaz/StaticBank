@@ -22,7 +22,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { DatePickerModule } from '@progress/kendo-angular-dateinputs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DepositComponent } from './components/deposit/deposit.component';
-import { WithdrawComponent } from './components/withdraw/withdraw.component';
+//import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -42,7 +42,7 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
     ModalpopupComponent,
     UserInfoComponent,
     DepositComponent,
-    WithdrawComponent,
+    //WithdrawComponent,
     AccountInfoComponent
   ],
   imports: [
