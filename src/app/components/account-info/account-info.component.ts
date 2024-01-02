@@ -12,6 +12,12 @@ import { AccountInfoService } from 'src/app/services/accountInfo/account-info.se
   styleUrls: ['./account-info.component.scss']
 })
 export class AccountInfoComponent implements OnInit {
+  userName: any;
+  accountNumber: any;
+  accountType: any;
+  itemName: any;
+  balance: any;
+  dateOpened: any;
 
   Obj: any = {
     accountInfoList: [
@@ -20,8 +26,9 @@ export class AccountInfoComponent implements OnInit {
         userName: "",
         accountNumber: "",
         accountType: "",
-        // balance: "",
-        // dateOpened: "",
+        itemName: "",
+        balance: "",
+        dateOpened: "",
         // status: "",
         // overDraftLimit: "",
         // interestRate: "",
@@ -30,10 +37,24 @@ export class AccountInfoComponent implements OnInit {
       }
     ],
   }
+  accTypeList: any;
+  allAccTypeList: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private accountInfoService: AccountInfoService) { }
 
   ngOnInit(): void {
+
+    this.accountInfoService.getAccountType().subscribe((accType: any) => {
+
+      this.accTypeList = accType;
+      this.allAccTypeList = new Set(this.accTypeList.map((obj: { typeName: any; }) => obj.typeName));
+
+      this.BloodGroupList = this.userInfoService.getBloodGroupList();
+
+
+    });
+
+
   }
 
 }

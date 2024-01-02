@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { DepositComponent } from './components/deposit/deposit.component';
-import { WithdrawComponent } from './components/withdraw/withdraw.component';
+//import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 
 
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'UserInfo', component: UserInfoComponent},
   {path: 'Deposit', component: DepositComponent},
-  {path: 'Withdraw', component: WithdrawComponent}
+  {path: 'AccountInfo', component: AccountInfoComponent}
+  //{path: 'Withdraw', component: WithdrawComponent}
 ]
 
 @NgModule({

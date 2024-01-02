@@ -42,6 +42,11 @@ export const navbarData: INavbarData[] = [
         label: 'Utilities',
         items: [
             {
+                routelink: 'AccountInfo',
+                icon: 'fal fa-check',
+                label: 'Account Info'
+            },
+            {
                 routelink: 'Deposit',
                 icon: 'fal fa-check',
                 label: 'Deposit'

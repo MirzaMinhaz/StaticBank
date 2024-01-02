@@ -10,8 +10,8 @@
                         <label for="userName">:</label>
                     </div>
                     <div class="col-35">
-                        <input type="text" id="firstName" placeholder="Enter First Name"
-                            class="form-control" [(ngModel)]="userInfo.firstName" required>
+                        <input type="text" id="userName" placeholder="Enter User Name"
+                            class="form-control" [(ngModel)]="userName" required>
                     </div>
                     <div class="col-13">
                         <label for="accountNumber">Account Number</label>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-35">
                         <input type="text" id="accountNumber" placeholder="Enter Account No"
-                            class="form-control" [(ngModel)]="accInfo.accountNumber" required>
+                            class="form-control" [(ngModel)]="accountNumber" required>
                     </div>
                 </div>
 
@@ -31,17 +31,18 @@
                     </div>
                     <div class="col-clone-2">
                         <label for="accountType">:</label>
-                    </div>
-                    <div class="col-35">
-                        <select style="padding: 5px 0;" id="accountType" name="accountType" [(ngModel)]="accInfo.accountType">
+                    </div> 
+                     <div class="col-35">
+                        <select [(ngModel)]="accountType" style="padding: 5px 0;" id="accountType" name="accountType"
+                            class="form-control">
                             <option value="">Select Account Type</option>
-                            <option *ngFor="let item of allitemNameList" [ngValue]="item">
-                                {{ item}}
+                            <option *ngFor="let accType of allAccTypeList" [ngValue]="accType">
+                                {{ accType }}
                             </option>
                         </select>
                     </div>
 
-                    <!-- <div class="col-13">
+                    <div class="col-13">
                         <label for="balance">Balance</label>
                     </div>
                     <div class="col-clone-2">
@@ -49,7 +50,7 @@
                     </div>
                     <div class="col-35">
                         <input type="text" id="balance" placeholder="Enter Balance"
-                            class="form-control" [(ngModel)]="accInfo.balance" required>
+                            class="form-control" [(ngModel)]="balance" required>
                     </div>
                 </div>
 
@@ -85,7 +86,7 @@
                 </div>
 
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-13">
                         <label for="overDraftLimit">Over Draft Limit</label>
                     </div>
