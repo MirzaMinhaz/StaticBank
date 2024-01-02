@@ -14,6 +14,10 @@ export class AccountInfoService {
     return this.http.get<string>(`${environment.apiUrl}/TblAccountTypes/getAccountType`);
   }
 
+  public getBranchNames(): Observable<string> {
+    return this.http.get<string>(`${environment.apiUrl}/TblBranches/getBranchNames`);
+  }
+
 
   public getAccountStatus() : any{
     let AccountStatusList = [

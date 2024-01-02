@@ -18,6 +18,12 @@ export class AccountInfoComponent implements OnInit {
   itemName: any;
   balance: any;
   dateOpened: any;
+  status: any;
+  overDraftLimit: any;
+  interestRate: any;
+  lastTransactionDate: any;
+  branchName: any;
+  comments: any;
 
   Obj: any = {
     accountInfoList: [
@@ -28,17 +34,21 @@ export class AccountInfoComponent implements OnInit {
         accountType: "",
         itemName: "",
         balance: "",
-        dateOpened: "",
-        // status: "",
-        // overDraftLimit: "",
-        // interestRate: "",
-        // lastTransactionDate: "",
-        // branchName: "",
+        dateOpened: new Date(),
+        status: "",
+        overDraftLimit: "",
+        interestRate: "",
+        lastTransactionDate: "",
+        branchName: "",
+        comments: "",
       }
     ],
   }
   accTypeList: any;
   allAccTypeList: any;
+  AccountStatusList: any;
+  brhNameList: any;
+  allBranchNameList: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private accountInfoService: AccountInfoService) { }
 
@@ -49,12 +59,24 @@ export class AccountInfoComponent implements OnInit {
       this.accTypeList = accType;
       this.allAccTypeList = new Set(this.accTypeList.map((obj: { typeName: any; }) => obj.typeName));
 
-      this.BloodGroupList = this.userInfoService.getBloodGroupList();
+    });
 
+    this.accountInfoService.getBranchNames().subscribe((brhName: any) => {
+
+      this.brhNameList = brhName;
+      this.allBranchNameList = new Set(this.brhNameList.map((obj: { branchName: any; }) => obj.branchName));
 
     });
 
+    this.AccountStatusList = this.accountInfoService.getAccountStatus();
+
 
   }
+
+  public twoDigitYearMax = 30;
+  public fullFormat = "dd-MMM-yyyy";
+
+  public min = new Date(1931, 0, 1);
+  public max = new Date(2030, 11, 31);
 
 }
