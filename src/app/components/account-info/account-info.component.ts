@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { AccountInfoService } from 'src/app/services/accountInfo/account-info.service';
+import { AccountInfoService } from 'src/app/services/accountinfo/account-info.service';
 
 @Component({
   selector: 'app-account-info',
@@ -53,6 +53,8 @@ export class AccountInfoComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private accountInfoService: AccountInfoService) { }
 
   ngOnInit(): void {
+
+    debugger
 
     this.accountInfoService.getAccountType().subscribe((accType: any) => {
 
