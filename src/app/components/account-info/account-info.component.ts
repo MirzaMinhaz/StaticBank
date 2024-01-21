@@ -25,24 +25,19 @@ export class AccountInfoComponent implements OnInit {
   branchName: any;
   comments: any;
 
-  Obj: any = {
-    accountInfoList: [
-
-      {
-        firstName: "",
-        accountNumber: "",
-        accountType: "",
-        itemName: "",
-        balance: "",
-        dateOpened: new Date(),
-        status: "",
-        overDraftLimit: "",
-        interestRate: "",
-        lastTransactionDate: "",
-        branchName: "",
-        comments: "",
-      }
-    ],
+  accountInfoEntry = {
+    firstName: "",
+    accountNumber: "",
+    accountType: "",
+    itemName: "",
+    balance: "",
+    dateOpened: new Date(),
+    status: "",
+    overDraftLimit: "",
+    interestRate: "",
+    lastTransactionDate: "",
+    branchName: "",
+    comments: "",
   }
   accTypeList: any;
   allAccTypeList: any;
@@ -84,10 +79,48 @@ export class AccountInfoComponent implements OnInit {
 
   }
 
+  async saveAccountInformation() {
+    debugger
+    var AccountInfoList = prepareAccountInfo(this.accountInfoEntry);
+    await this.accountInfoService.saveAccountInfo(AccountInfoList);
+
+  }
+
+
   public twoDigitYearMax = 30;
   public fullFormat = "dd-MMM-yyyy";
 
   public min = new Date(1931, 0, 1);
   public max = new Date(2030, 11, 31);
+}
 
+
+
+
+
+
+function prepareAccountInfo(accountInfoEntry: any) {
+  debugger
+  var newArray: any = [];
+
+  var obj = {
+    "accountId": 0,
+    "userId": 0,
+    "accountNumber": accountInfoEntry.accountNumber,
+    "accountType": accountInfoEntry.accountType,
+    "balance": accountInfoEntry.balance,
+    "dateOpened": accountInfoEntry.dateOpened,
+    "status": accountInfoEntry.status,
+    "overdraftLimit": accountInfoEntry.overDraftLimit,
+    "interestRate": accountInfoEntry.interestRate,
+    "lastTransactionDate": accountInfoEntry.lastTransactionDate,
+    "branchId": "",
+    "comments": accountInfoEntry.comments
+
+  };
+  newArray.push(obj);
+
+
+
+  return newArray;
 }

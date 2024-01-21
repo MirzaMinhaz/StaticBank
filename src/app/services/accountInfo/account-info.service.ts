@@ -30,4 +30,11 @@ export class AccountInfoService {
     ];
     return AccountStatusList;
   }
+
+
+  public saveAccountInfo(AccountInfoList:any): Observable<any> {
+   debugger
+    return this.http.post(`${environment.apiUrl}/TblAccounts`,AccountInfoList);
+  }
+
 }

@@ -20,7 +20,7 @@
                     <label for="firstName">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="firstName" style="padding: 5px 0;" id="firstName" name="firstName">
+                    <select [(ngModel)]="accountInfoEntry.firstName" style="padding: 5px 0;" id="firstName" name="firstName">
                         <option value="">Select User Name</option>
                         <option *ngFor="let name of allUserNameList" [ngValue]="name">
                             {{ name }}
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-35">
                     <input type="text" id="accountNumber" placeholder="Enter Account No" class="form-control"
-                        [(ngModel)]="accountNumber" required>
+                        [(ngModel)]="accountInfoEntry.accountNumber" required>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@
                     <label for="accountType">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="accountType" style="padding: 5px 0;" id="accountType" name="accountType"
+                    <select [(ngModel)]="accountInfoEntry.accountType" style="padding: 5px 0;" id="accountType" name="accountType"
                         class="form-control">
                         <option value="">Select Account Type</option>
                         <option *ngFor="let accType of allAccTypeList" [ngValue]="accType">
@@ -89,7 +89,7 @@
                     <label for="status">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="status" style="padding: 5px 0;" id="status" name="status" class="form-control">
+                    <select [(ngModel)]="accountInfoEntry.status" style="padding: 5px 0;" id="status" name="status" class="form-control">
                         <option value="">Select Status</option>
                         <option *ngFor="let Stat of AccountStatusList" [value]="Stat.Status">
                             {{ Stat.Status }}
@@ -108,7 +108,7 @@
                 </div>
                 <div class="col-35">
                     <input type="text" id="overDraftLimit" placeholder="Enter OverDraft Limit" class="form-control"
-                        [(ngModel)]="balance" required>
+                        [(ngModel)]="accountInfoEntry.overDraftLimit" required>
                 </div>
 
                 <div class="col-13">
@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-35">
                     <input type="text" id="interestRate" placeholder="Enter Interest Rate" class="form-control"
-                        [(ngModel)]="interestRate" required>
+                        [(ngModel)]="accountInfoEntry.interestRate" required>
                 </div>
             </div>
 
@@ -133,7 +133,7 @@
                 </div>
                 <div class="col-35">
                     <input type="text" id="address" readonly placeholder="Last Transaction Date" class="form-control"
-                        [(ngModel)]="lastTransactionDate" required>
+                        [(ngModel)]="accountInfoEntry.lastTransactionDate" required>
                 </div>
 
             <div class="col-13">
@@ -163,14 +163,14 @@
             </div>
             <div class="col-35">
                 <input type="text" id="comments" placeholder="Add Comment" class="form-control"
-                    [(ngModel)]="comments" required>
+                    [(ngModel)]="accountInfoEntry.comments" required>
             </div>
         </div>
 
 
-        <!-- <div class="row">
-            <button class="save" (click)="saveScMlcGroupApproval()">Save</button>
-        </div>  -->
+        <div class="row">
+            <button class="save" (click)="saveAccountInformation()">Save</button>
+        </div> 
     </div>
 </div>
 </div>
