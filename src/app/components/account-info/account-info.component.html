@@ -3,7 +3,7 @@
     <div class="card-body">
         <div class="container">
             <div class="row">
-                <div class="col-13">
+                <!-- <div class="col-13">
                     <label for="userName">User Name</label>
                 </div>
                 <div class="col-clone-2">
@@ -12,6 +12,20 @@
                 <div class="col-35">
                     <input type="text" id="userName" placeholder="Enter User Name" class="form-control"
                         [(ngModel)]="userName" required>
+                </div> -->
+                <div class="col-13">
+                    <label for="firstName">User Name</label>
+                </div>
+                <div class="col-clone-2">
+                    <label for="firstName">:</label>
+                </div>
+                <div class="col-35">
+                    <select [(ngModel)]="firstName" style="padding: 5px 0;" id="firstName" name="firstName">
+                        <option value="">Select User Name</option>
+                        <option *ngFor="let name of allUserNameList" [ngValue]="name">
+                            {{ name }}
+                        </option>
+                    </select>
                 </div>
                 <div class="col-13">
                     <label for="accountNumber">Account Number</label>

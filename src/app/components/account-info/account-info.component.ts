@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { AccountInfoService } from 'src/app/services/accountinfo/account-info.service';
+import { AccountInfoService } from 'src/app/services/accountInfo/account-info.service';
 
 @Component({
   selector: 'app-account-info',
@@ -12,7 +12,7 @@ import { AccountInfoService } from 'src/app/services/accountinfo/account-info.se
   styleUrls: ['./account-info.component.scss']
 })
 export class AccountInfoComponent implements OnInit {
-  userName: any;
+  firstName: any;
   accountNumber: any;
   accountType: any;
   itemName: any;
@@ -29,7 +29,7 @@ export class AccountInfoComponent implements OnInit {
     accountInfoList: [
 
       {
-        userName: "",
+        firstName: "",
         accountNumber: "",
         accountType: "",
         itemName: "",
@@ -49,6 +49,8 @@ export class AccountInfoComponent implements OnInit {
   AccountStatusList: any;
   brhNameList: any;
   allBranchNameList: any;
+  userNameList: any;
+  allUserNameList: any;
 
   constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog, private accountInfoService: AccountInfoService) { }
 
@@ -67,6 +69,13 @@ export class AccountInfoComponent implements OnInit {
 
       this.brhNameList = brhName;
       this.allBranchNameList = new Set(this.brhNameList.map((obj: { branchName: any; }) => obj.branchName));
+
+    });
+
+    this.accountInfoService.getUserName().subscribe((userNames: any) => {
+      debugger
+      this.userNameList = userNames;
+      this.allUserNameList = new Set(this.userNameList.map((obj: { firstName: any; }) => obj.firstName));
 
     });
 
