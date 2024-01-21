@@ -37,4 +37,10 @@ export class AccountInfoService {
     return this.http.post(`${environment.apiUrl}/TblAccounts`,AccountInfoList);
   }
 
-}
+  // public saveAccountInfo( accountInfoEntry: any):void{
+  //  debugger
+  //   this.http.post(`${environment.apiUrl}/TblAccounts`,accountInfoEntry).subscribe((result)=>{
+  //    console.log(result);
+  //  });
+ }
+
