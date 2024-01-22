@@ -32,15 +32,24 @@ export class AccountInfoService {
   }
 
 
-  public saveAccountInfo(AccountInfoList:any): Observable<any> {
-   debugger
-    return this.http.post(`${environment.apiUrl}/TblAccounts`,AccountInfoList);
-  }
-
-  // public saveAccountInfo( accountInfoEntry: any):void{
+  // public saveAccountInfo(AccountInfoList:any): Observable<any> {
   //  debugger
-  //   this.http.post(`${environment.apiUrl}/TblAccounts`,accountInfoEntry).subscribe((result)=>{
+  //   return this.http.post(`${environment.apiUrl}/TblAccounts`,AccountInfoList);
+  // }
+
+
+  // public saveAccountInfo(AccountInfoList:any):any{
+  //   debugger
+  //   this.http.post(`${environment.apiUrl}/TblAccounts`,AccountInfoList).subscribe((result)=>{
   //    console.log(result);
   //  });
+  // }
+
+  public saveAccountInfo(accountInfoList:any):any{
+    debugger
+    this.http.post(`${environment.apiUrl}/Issues`,accountInfoList).subscribe((result)=>{
+     console.log(result);
+   });
+  }
  }
 

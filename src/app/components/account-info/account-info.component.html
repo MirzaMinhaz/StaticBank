@@ -2,6 +2,7 @@
     <h1 class="card-header">Account Information</h1>
     <div class="card-body">
         <div class="container">
+            <form [formGroup]="AccountInfoForm"></form>
             <div class="row">
                 <!-- <div class="col-13">
                     <label for="userName">User Name</label>
@@ -142,9 +143,17 @@
             <div class="col-clone-2">
                 <label for="branchName">:</label>
             </div>
-            <div class="col-35">
-                <select [(ngModel)]="branchName" style="padding: 5px 0;" id="branchName" name="branchName"
+            <!-- <div class="col-35">
+                <select [(ngModel)]="accountInfoEntry.branchName" style="padding: 5px 0;" id="branchName" name="branchName"
                     formControlName="branchName" class="form-control">
+                    <option value="">Select Branch Name</option>
+                    <option *ngFor="let branch of allBranchNameList" [ngValue]="branch">
+                        {{ branch }}
+                    </option>
+                </select>
+            </div> -->
+            <div class="col-35">
+                <select [(ngModel)]="accountInfoEntry.branchName" style="padding: 5px 0;" id="branchName" name="branchName" class="form-control">
                     <option value="">Select Branch Name</option>
                     <option *ngFor="let branch of allBranchNameList" [ngValue]="branch">
                         {{ branch }}
