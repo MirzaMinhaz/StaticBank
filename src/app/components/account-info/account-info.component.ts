@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AccountInfoService } from 'src/app/services/accountInfo/account-info.service';
+import { AccountInfoService } from 'src/app/services/accountinfo/account-info.service';
 //import { AccountInfo } from 'src/app/models/accountInfo/accountInfo';
 
 @Component({
