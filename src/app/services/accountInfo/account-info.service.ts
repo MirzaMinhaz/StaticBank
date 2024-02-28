@@ -22,6 +22,9 @@ export class AccountInfoService {
     return this.http.get<string>(`${environment.apiUrl}/TblBranches/getBranchNames`);
   }
 
+  public getUserDetails(): Observable<string> {
+    return this.http.get<string>(`${environment.apiUrl}/TblUserInfos`);
+  }
 
   public getAccountStatus() : any{
     let AccountStatusList = [
@@ -45,11 +48,20 @@ export class AccountInfoService {
   //  });
   // }
 
-  public saveAccountInfo(accountInfoList:any):any{
+  public saveAccountInfo(accountInfoList:any):void{
     debugger
-    this.http.post(`${environment.apiUrl}/Issues`,accountInfoList).subscribe((result)=>{
+    this.http.post(`${environment.apiUrl}/TblAccounts`,accountInfoList).subscribe((result)=>{
      console.log(result);
    });
   }
+
+  // public createUserInfo( userInfo: UserInfo):void{
+  //   debugger
+  //   this.http.post(`${environment.apiUrl}/TblUserInfos`, userInfo).subscribe((result) => {
+  //     console.log(result);
+  //   });
+      
+  // }
+
  }
 

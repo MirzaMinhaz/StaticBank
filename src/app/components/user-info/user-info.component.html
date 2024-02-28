@@ -11,7 +11,7 @@
                         <label for="firstName">:</label>
                     </div>
                     <div class="col-35">
-                        <input style="width: 550px;" type="text" id="firstName" placeholder="Enter First Name" formControlName="firstName"
+                        <input  type="text" id="firstName" placeholder="Enter First Name" formControlName="firstName"
                             class="form-control" [(ngModel)]="userInfo.firstName" required>
                     </div>
                     <div class="col-13">
@@ -21,7 +21,7 @@
                         <label for="lastName">:</label>
                     </div>
                     <div class="col-35">
-                        <input style="width: 550px;" type="text" id="lastName" placeholder="Enter Last Name" formControlName="lastName"
+                        <input type="text" id="lastName" placeholder="Enter Last Name" formControlName="lastName"
                             class="form-control" [(ngModel)]="userInfo.lastName" required>
                     </div>
                 </div>
@@ -302,11 +302,11 @@
             </ng-container> -->
             <ng-container matColumnDef="firstName">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> First Name </th>
-                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.firstName}} </td>
+                <td style="width: 150px;" class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.firstName}} </td>
             </ng-container>
             <ng-container matColumnDef="lastName">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Last Name </th>
-                <td class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.lastName}} </td>
+                <td style="width: 100px;" class="border" mat-cell *matCellDef="let userInfoList"> {{userInfoList.lastName}} </td>
             </ng-container>
             <ng-container matColumnDef="gender">
                 <th class="border mat-header-row" mat-header-cell *matHeaderCellDef> Gender </th>

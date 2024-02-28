@@ -21,7 +21,8 @@
                     <label for="firstName">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="accountInfoEntry.firstName" style="padding: 5px 0;" id="firstName" name="firstName">
+                    <select [(ngModel)]="accountInfoEntry.firstName" style="padding: 5px 0;" id="firstName"
+                        name="firstName">
                         <option value="">Select User Name</option>
                         <option *ngFor="let name of allUserNameList" [ngValue]="name">
                             {{ name }}
@@ -48,8 +49,8 @@
                     <label for="accountType">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="accountInfoEntry.accountType" style="padding: 5px 0;" id="accountType" name="accountType"
-                        class="form-control">
+                    <select [(ngModel)]="accountInfoEntry.accountType" style="padding: 5px 0;" id="accountType"
+                        name="accountType" class="form-control">
                         <option value="">Select Account Type</option>
                         <option *ngFor="let accType of allAccTypeList" [ngValue]="accType">
                             {{ accType }}
@@ -77,6 +78,10 @@
                     <label for="dateOpened">:</label>
                 </div>
                 <div class="col-35">
+                    <!-- <kendo-datepicker formControlName="dateOpened" class="form-control"
+                        style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                        [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
+                    </kendo-datepicker> -->
                     <kendo-datepicker formControlName="dateOpened" class="form-control"
                         style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
                         [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
@@ -90,7 +95,8 @@
                     <label for="status">:</label>
                 </div>
                 <div class="col-35">
-                    <select [(ngModel)]="accountInfoEntry.status" style="padding: 5px 0;" id="status" name="status" class="form-control">
+                    <select [(ngModel)]="accountInfoEntry.status" style="padding: 5px 0;" id="status" name="status"
+                        class="form-control">
                         <option value="">Select Status</option>
                         <option *ngFor="let Stat of AccountStatusList" [value]="Stat.Status">
                             {{ Stat.Status }}
@@ -137,13 +143,13 @@
                         [(ngModel)]="accountInfoEntry.lastTransactionDate" required>
                 </div>
 
-            <div class="col-13">
-                <label for="branchName">Branch Name</label>
-            </div>
-            <div class="col-clone-2">
-                <label for="branchName">:</label>
-            </div>
-            <!-- <div class="col-35">
+                <div class="col-13">
+                    <label for="branchName">Branch Name</label>
+                </div>
+                <div class="col-clone-2">
+                    <label for="branchName">:</label>
+                </div>
+                <!-- <div class="col-35">
                 <select [(ngModel)]="accountInfoEntry.branchName" style="padding: 5px 0;" id="branchName" name="branchName"
                     formControlName="branchName" class="form-control">
                     <option value="">Select Branch Name</option>
@@ -152,34 +158,36 @@
                     </option>
                 </select>
             </div> -->
-            <div class="col-35">
-                <select [(ngModel)]="accountInfoEntry.branchName" style="padding: 5px 0;" id="branchName" name="branchName" class="form-control">
-                    <option value="">Select Branch Name</option>
-                    <option *ngFor="let branch of allBranchNameList" [ngValue]="branch">
-                        {{ branch }}
-                    </option>
-                </select>
+                <div class="col-35">
+                    <select [(ngModel)]="accountInfoEntry.branchName" style="padding: 5px 0;" id="branchName"
+                        name="branchName" class="form-control">
+                        <option value="">Select Branch Name</option>
+                        <option *ngFor="let branch of allBranchNameList" [ngValue]="branch">
+                            {{ branch }}
+                        </option>
+                    </select>
+                </div>
             </div>
-        </div>
 
 
-        <div class="row">
-            <div class="col-13">
-                <label for="comments">Comment</label>
+            <div class="row">
+                <div class="col-13">
+                    <label for="comments">Comment</label>
+                </div>
+                <div class="col-clone-2">
+                    <label for="comments">:</label>
+                </div>
+                <div class="col-35">
+                    <input type="text" id="comments" placeholder="Add Comment" class="form-control"
+                        [(ngModel)]="accountInfoEntry.comments" required>
+                </div>
             </div>
-            <div class="col-clone-2">
-                <label for="comments">:</label>
-            </div>
-            <div class="col-35">
-                <input type="text" id="comments" placeholder="Add Comment" class="form-control"
-                    [(ngModel)]="accountInfoEntry.comments" required>
-            </div>
-        </div>
 
 
-        <div class="row">
+            <!-- <div class="row">
             <button class="save" (click)="saveAccountInformation()">Save</button>
-        </div> 
+        </div>  -->
+
+        </div>
     </div>
-</div>
 </div>

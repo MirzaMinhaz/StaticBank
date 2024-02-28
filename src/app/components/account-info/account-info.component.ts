@@ -78,7 +78,14 @@ export class AccountInfoComponent implements OnInit {
 
     });
 
-    this.accountInfoService.getUserName().subscribe((userNames: any) => {
+    // this.accountInfoService.getUserName().subscribe((userNames: any) => {
+    //   debugger
+    //   this.userNameList = userNames;
+    //   this.allUserNameList = new Set(this.userNameList.map((obj: { firstName: any; }) => obj.firstName));
+
+    // });
+
+    this.accountInfoService.getUserDetails().subscribe((userNames: any) => {
       debugger
       this.userNameList = userNames;
       this.allUserNameList = new Set(this.userNameList.map((obj: { firstName: any; }) => obj.firstName));
@@ -104,6 +111,16 @@ export class AccountInfoComponent implements OnInit {
 
     await this.accountInfoService.saveAccountInfo(this.accountInfoEntry);
     this.AccountInfoForm.reset();
+  }
+
+  onSubmit() {
+    debugger
+
+    this.accountInfoService.saveAccountInfo(this.accountInfoEntry);
+
+   // this.submitted = true;
+
+   this.AccountInfoForm.reset();
   }
 
 }
