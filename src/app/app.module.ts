@@ -29,6 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { AccountComponent } from './components/account/account.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
     UserInfoComponent,
     DepositComponent,
     //WithdrawComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { DepositComponent } from './components/deposit/deposit.component';
 //import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { AccountComponent } from './components/account/account.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'UserInfo', component: UserInfoComponent},
   {path: 'Deposit', component: DepositComponent},
-  {path: 'AccountInfo', component: AccountInfoComponent}
+  {path: 'Account', component: AccountComponent}
   //{path: 'Withdraw', component: WithdrawComponent}
 ]
 

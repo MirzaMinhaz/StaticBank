@@ -1,0 +1,177 @@
+<br>
+<div class="account-entry-heading">
+    <h2 style="text-align: center;">Account Entry</h2>
+</div>
+<br>
+<div class="row">
+    <div>
+        <div class="col-13">
+            <label for="userName">User Name</label>
+        </div>
+        <div class="col-clone-2">
+            <label for="userName">:</label>
+        </div>
+        <div class="col-35">
+            <select [(ngModel)]="parameterObj.accountList[0].userName" style="padding: 5px 0;" id="userName"
+                name="userName" class="form-control">
+                <option value="">Select User Name</option>
+                <option *ngFor="let user of allUserNameList" [ngValue]="user">
+                    {{ user }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="col-13">
+                <label for="accountNumber">Account Number</label>
+            </div>
+            <div class="col-clone-2">
+                <label for="accountNumber">:</label>
+            </div>
+            <div class="col-35">
+                <input type="text" [(ngModel)]="parameterObj.accountList[0].accountNumber" id="challanNo"
+                    placeholder="Insert Challan No">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-13">
+            <label for="accountType">Account Type</label>
+        </div>
+        <div class="col-clone-2">
+            <label for="accountType">:</label>
+        </div>
+        <div class="col-35">
+            <select [(ngModel)]="parameterObj.accountList[0].accountType" style="padding: 5px 0;" id="accountType"
+                name="accountType" class="form-control">
+                <option value="">Select Account Type</option>
+                <option *ngFor="let type of allAccountTypeList" [ngValue]="type">
+                    {{ type }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="col-13">
+                <label for="balance">Balance</label>
+            </div>
+            <div class="col-clone-2">
+                <label for="balance">:</label>
+            </div>
+            <div class="col-35">
+                <input type="text" id="balance" placeholder="Enter Balance" class="form-control"
+                    [(ngModel)]="parameterObj.accountList[0].balance" required>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-13">
+            <label for="dateOpened">Date Opened</label>
+        </div>
+        <div class="col-clone-2">
+            <label for="dateOpened">:</label>
+        </div>
+        <div class="col-35">
+            <kendo-datepicker formControlName="dateOpened" class="form-control"
+                style="margin-top: .3rem; border-color: #ccc; " #picker [format]="fullFormat"
+                [twoDigitYearMax]="twoDigitYearMax" [min]="min" [max]="max">
+            </kendo-datepicker>
+        </div>
+    </div>
+    <div class="col-13">
+        <label for="status">Status</label>
+    </div>
+    <div class="col-clone-2">
+        <label for="status">:</label>
+    </div>
+    <div class="col-35">
+        <select [(ngModel)]="parameterObj.accountList[0].status" style="padding: 5px 0;" id="status" name="status"
+            class="form-control">
+            <option value="">Select Status</option>
+            <option *ngFor="let Stat of AccountStatusList" [value]="Stat.Status">
+                {{ Stat.Status }}
+            </option>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-13">
+            <label for="overDraftLimit">Over Draft Limit</label>
+        </div>
+        <div class="col-clone-2">
+            <label for="overDraftLimit">:</label>
+        </div>
+        <div class="col-35">
+            <input type="text" [ngModel]="parameterObj.accountList[0].overDraftLimit" id="overDraftLimit">
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="col-13">
+                <label for="lastTransactionDate">Last Transaction Date</label>
+            </div>
+            <div class="col-clone-2">
+                <label for="lastTransactionDate">:</label>
+            </div>
+            <div class="col-35">
+                <textarea [ngModel]="parameterObj.accountList[0].lastTransactionDate" id="lastTransactionDate"
+                    readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-13">
+            <label for="branchName">Branch Name</label>
+        </div>
+        <div class="col-clone-2">
+            <label for="branchName">:</label>
+        </div>
+        <div class="col-35">
+            <select [(ngModel)]="parameterObj.accountList[0].branchName" style="padding: 5px 0;" id="branchName"
+                name="branchName" class="form-control">
+                <option value="">Select Branch Name</option>
+                <option *ngFor="let branch of allBranchNameList" [ngValue]="branch">
+                    {{ branch }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <div class="col-13">
+        </div>
+        <div class="col-clone-2">
+        </div>
+        <div class="col-35">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-13">
+        </div>
+        <div class="col-clone-2">
+        </div>
+        <div class="col-35">
+        </div>
+    </div>
+    <div>
+        <div class="col-13">
+            <label for=""></label>
+        </div>
+        <div class="col-clone-2">
+            <label for=""></label>
+        </div>
+        <div class="col-35">
+            <button class="save" (click)="saveSPRProformaInvoice()">Save</button>
+        </div>
+    </div>
+</div>
