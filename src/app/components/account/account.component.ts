@@ -54,26 +54,13 @@ export class AccountComponent implements OnInit {
   }
 
 
-  async onPiSelected() {
-    debugger
-    const selectedPiNumber = this.parameterObj.sprReceiveList[0].piNo;
-    //var sprPidata = await this.requisitionEntryService.getReceiveInfoByPINo(selectedPiNumber).toPromise();
-    // this.dataSource = sprPidata;
-    // this.parameterObj.sprReceiveList[0].poNo = sprPidata[0].poNo;
-    // this.parameterObj.sprReceiveList[0].supplierName = sprPidata[0].supplierName;
-
-    // var suppCode = sprPidata[0].supplierCode;
-    // var supplierInfo = await this.commonService.getSupplierBySupplierCode(suppCode).toPromise();
-    // this.parameterObj.sprReceiveList[0].officeAddress = supplierInfo[0].officeAddress;
-  }
-
 
   async saveSPRProformaInvoice() {
-    var SPRReceiveList = prepareSaveableData(this.dataSource, this.parameterObj.sprReceiveList[0].piNo, this.parameterObj.sprReceiveList[0].challanNo);
+    debugger
+    var SPRReceiveList = prepareSaveableData(this.parameterObj.accountList[0].accountNumber,this.parameterObj.accountList[0].userName,this.parameterObj.accountList[0].accountType,this.parameterObj.accountList[0].balance,this.parameterObj.accountList[0].status,this.parameterObj.accountList[0].overDraftLimit,this.parameterObj.accountList[0].lastTransactionDate,this.parameterObj.accountList[0].branchName);
     //await this.requisitionEntryService.saveSPRReceiveInfo(SPRReceiveList).toPromise();
     //this.commonService.callPopupCommon(5, "Data Successfully Saved!!");
     //location.reload();
-
   }
 
   public twoDigitYearMax = 30;
@@ -85,28 +72,28 @@ export class AccountComponent implements OnInit {
 }
 
 
-function prepareSaveableData(dataSource: any, piNo: any, challanNo: any) {
+function prepareSaveableData(accountNumber: any, userName: any, accountType: any, balance: any, status: any, overDraftLimit: any, lastTransactionDate: any, branchName: any) {
   debugger
   var saveableData: any = [];
-  
-  dataSource.forEach((item: any) => {
       var obj = {
-        "poNo": "",
-        "piNo": "",
-        "ilCode": "",
-        "poType": "SPR",
-        "challanNo": "",
-        "receivedQty": 0,
-        "comments": "",
+        "accountNumber": "",
+        "userName": "",
+        "accountType": "",
+        "balance": "0",
+        "status": "",
+        "overDraftLimit": 0,
+        "lastTransactionDate": "",
+        "branchName": "",
       };
-      obj.poNo = item.poNo;
-      obj.piNo = piNo;
-      obj.ilCode = item.ilCode;
-      obj.challanNo = challanNo;
-      obj.receivedQty = item.receivedQty;
-      obj.comments = item.comments;
+      obj.accountNumber = accountNumber;
+      obj.userName = userName;
+      obj.accountType = accountType;
+      obj.balance = balance;
+      obj.status = status;
+      obj.overDraftLimit = overDraftLimit;
+      obj.lastTransactionDate = lastTransactionDate;
+      obj.branchName = branchName;
       saveableData.push(obj);
-  });
   
   return saveableData;
 }
